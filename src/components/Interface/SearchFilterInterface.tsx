@@ -17,7 +17,7 @@ export interface TypeFilter {
   grass: boolean;
   flying: boolean;
   fighting: boolean;
-  poision: boolean;
+  poison: boolean;
   electric: boolean;
   ground: boolean;
   psychic: boolean;
@@ -56,7 +56,7 @@ export const searchFilterDefault: SearchFilter = {
     grass: true,
     flying: true,
     fighting: true,
-    poision: true,
+    poison: true,
     electric: true,
     ground: true,
     psychic: true,
@@ -77,7 +77,7 @@ export const typeList: Array<string> = [
   "grass",
   "flying",
   "fighting",
-  "poision",
+  "poison",
   "electric",
   "ground",
   "psychic",

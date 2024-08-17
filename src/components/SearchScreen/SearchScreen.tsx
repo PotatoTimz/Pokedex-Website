@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import {
+  GenerationFilter,
+  generationList,
   SearchFilter,
   searchFilterDefault,
+  TypeFilter,
+  typeList,
 } from "../Interface/SearchFilterInterface";
 import { fetchSearchResults } from "../Hooks/FetchAPIData";
 import { SearchQueryInfo } from "../Interface/ApiInterfaces/SearchResultsInterface";
@@ -39,17 +43,34 @@ function SearchScreen() {
   };
 
   //onSubmit
-  const changeFilter = () => {
+  const changeFilterSimple = () => {
     setSearchFilter({
       ...searchFilter,
       keyword: wordFilter,
     });
   };
 
+  //onSubmit for filter form
+  const changeFilterAdvanced = (
+    word: string,
+    generations: GenerationFilter,
+    types: TypeFilter
+  ) => {
+    setSearchFilter({
+      keyword: word,
+      generation_filter: generations,
+      type_filter: types,
+    });
+    console.log(searchFilter);
+  };
+
   return (
     <div className="body">
       {enableFilterForm ? (
-        <FilterForm toggleFilterForm={openFilterForm}></FilterForm>
+        <FilterForm
+          toggleFilterForm={openFilterForm}
+          submitFilter={changeFilterAdvanced}
+        ></FilterForm>
       ) : (
         <>
           <input
@@ -59,7 +80,7 @@ function SearchScreen() {
               setWordFilter(e.target.value);
             }}
           ></input>
-          <button onClick={changeFilter}>Search</button>
+          <button onClick={changeFilterSimple}>Search</button>
           <button onClick={openFilterForm}>Open Filter Form</button>
         </>
       )}

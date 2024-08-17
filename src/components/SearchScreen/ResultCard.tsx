@@ -1,7 +1,9 @@
+import ResultCardClasses from "../../assets/scss/ResultCard.module.scss";
 import { fetchPokemonSearchData } from "../Hooks/FetchAPIData";
 import { SearchFilter } from "../Interface/SearchFilterInterface";
 import { useEffect, useState } from "react";
-import { REGIONS, generationInfo } from "../Interface/GenerationInterface";
+import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";
+import { generationInfo } from "../Interface/GenerationInterface";
 import pokeball_img from "../../assets/pokeball_transparent.jpg";
 import {
   SearchCard,
@@ -16,11 +18,6 @@ interface Props {
 function ResultCard(props: Props) {
   const [pokemonData, setPokemonData] = useState<SearchCard>(defaultSearchCard);
   const [passFilter, setPassFilter] = useState<boolean>(true);
-
-  const convertFirstCharacterUpper = (name: string) => {
-    const firstCharacter = name.charAt(0).toUpperCase();
-    return firstCharacter.concat(name.substring(1, name.length));
-  };
 
   const filterKeyword = (): boolean => {
     if (
@@ -59,6 +56,7 @@ function ResultCard(props: Props) {
 
   // Check if pokemon fits filter
   useEffect(() => {
+    console.log("changed filter detected");
     if (filterKeyword() && filterGeneration() && filterType()) {
       setPassFilter(true);
     } else {
@@ -75,22 +73,28 @@ function ResultCard(props: Props) {
   }, [props.id]);
 
   return passFilter ? (
-    <div className={`pokemonCard bg-${pokemonData.pokemonType[0]}-dark`}>
-      <div className="header">
-        <div className="row-1">
-          <div className={`pokemonName bg-${pokemonData.pokemonType[0]}-light`}>
+    <div
+      className={`${ResultCardClasses["pokemonCard"]} bg-${pokemonData.pokemonType[0]}-dark`}
+    >
+      <div className={ResultCardClasses["header"]}>
+        <div className={ResultCardClasses["row-1"]}>
+          <div
+            className={`${ResultCardClasses["pokemonName"]} bg-${pokemonData.pokemonType[0]}-light`}
+          >
             {pokemonData.pokemonName}
           </div>
-          <div className={`pokemonId bg-${pokemonData.pokemonType[0]}-light`}>
+          <div
+            className={`${ResultCardClasses["pokemonId"]} bg-${pokemonData.pokemonType[0]}-light`}
+          >
             #{pokemonData.pokemonId}
           </div>
         </div>
-        <div className="row-2">
+        <div className={ResultCardClasses["row-2"]}>
           {pokemonData.pokemonType.map((typing) => {
             return (
               <div
                 key={`${typing}`}
-                className={`pokemonType bg-${typing}-light`}
+                className={`${ResultCardClasses["pokemonType"]} bg-${typing}-light`}
               >
                 {convertFirstCharacterUpper(typing)}
               </div>
@@ -98,9 +102,9 @@ function ResultCard(props: Props) {
           })}
         </div>
       </div>
-      <div className="body">
+      <div className={ResultCardClasses["body"]}>
         <img
-          className={`pokeballImg bg-${
+          className={`${ResultCardClasses["pokeballImg"]} bg-${
             pokemonData.pokemonType.length >= 1
               ? pokemonData.pokemonType[1]
               : pokemonData.pokemonType[0]
@@ -111,12 +115,12 @@ function ResultCard(props: Props) {
         <img
           src={pokemonData.pokemonSprite}
           alt={pokemonData.pokemonName}
-          className={`pokemonImg`}
+          className={ResultCardClasses["pokemonImg"]}
         ></img>
       </div>
-      <div className="footer">
+      <div className={ResultCardClasses["footer"]}>
         <div
-          className={`generationInfo bg-${pokemonData.pokemonType[0]}-light`}
+          className={`${ResultCardClasses["generationInfo"]} bg-${pokemonData.pokemonType[0]}-light`}
         >
           <div>{pokemonData.pokemonRegionName}</div>
           <div>Generation: {pokemonData.pokemonRegionNumber}</div>

@@ -1,0 +1,134 @@
+.pokemonCard{
+    height: 405px;
+    width: 400px;
+    border-radius: 10%;
+    color: white;
+    font-weight: bold;
+    margin: 30px;
+    overflow: hidden;
+
+    &:hover .pokeballImg{
+        animation: spin 1s infinite linear;
+        animation-delay: 0.25s
+    }
+    &:hover{
+        animation: bounce 0.25s ease forwards;
+        border: black solid 3px;
+    }
+
+    .header{
+        margin-bottom: 30px;
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+    
+        .row-1{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+
+            .pokemonId{
+                border-radius: 5%;
+                
+                padding-left: 10px;
+                padding-right: 10px;
+                height: 50px;
+        
+                text-align: center;
+                line-height: 50px;
+                font-size: 30px;
+            }
+    
+            .pokemonName{
+                border-radius: 5%;
+                padding-left: 25px;
+                padding-right:25px;
+                height: 50px;
+        
+                text-align: center;
+                line-height: 50px;
+                font-size: 30px;
+            }
+        }
+        
+        .row-2{
+            display: flex;
+            flex-direction: row;
+            .pokemonType{
+                border-radius: 5%;
+                padding-left: 25px;
+                padding-right:25px;
+                height: 25px;
+  
+                text-align: center;
+                line-height: 25px;
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .body{
+        margin: 10px;
+        height: 175px;
+        width: auto;
+        margin-bottom: 30px;
+
+        position: relative;
+        
+        .pokeballImg{
+            height: 110%;
+            padding: 10px;
+            border-radius: 100%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pokemonImg{
+            height: 100%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);        
+        }
+    }
+
+    .footer{
+        .generationInfo{
+            font-size: 20px;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}
+
+
+// Animations
+@keyframes spin {
+    @for $i from 0 through 10 {
+      $percent: $i * 10%;
+      #{$percent} {
+        transform: translate(-50%, -50%) rotate(#{($i + 1) * 36}deg);
+      }
+    }  
+}
+
+@keyframes bounce {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.95);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
