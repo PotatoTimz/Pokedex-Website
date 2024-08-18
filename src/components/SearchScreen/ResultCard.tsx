@@ -1,4 +1,4 @@
-import ResultCardClasses from "../../assets/scss/ResultCard.module.scss";
+import ResultCardClasses from "../../assets/scss/SearchScreen/ResultCard.module.scss";
 import { fetchPokemonSearchData } from "../Hooks/FetchAPIData";
 import { SearchFilter } from "../Interface/SearchFilterInterface";
 import { useEffect, useState } from "react";
@@ -36,7 +36,10 @@ function ResultCard(props: Props) {
     )) {
       const genInfo = generationInfo(genNumber);
 
-      if (toggle && genInfo.region === pokemonData.pokemonRegionName) {
+      if (
+        toggle === "true" &&
+        genInfo.region === pokemonData.pokemonRegionName
+      ) {
         return true;
       }
     }
@@ -47,7 +50,7 @@ function ResultCard(props: Props) {
     for (const [typeName, toggle] of Object.entries(
       props.searchFilter.type_filter
     )) {
-      if (toggle && pokemonData.pokemonType.includes(typeName)) {
+      if (toggle === "true" && pokemonData.pokemonType.includes(typeName)) {
         return true;
       }
     }
@@ -56,7 +59,6 @@ function ResultCard(props: Props) {
 
   // Check if pokemon fits filter
   useEffect(() => {
-    console.log("changed filter detected");
     if (filterKeyword() && filterGeneration() && filterType()) {
       setPassFilter(true);
     } else {

@@ -1,0 +1,41 @@
+$pokeball-red: #C52941;
+
+#body{
+    position: relative;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding-top: 80px;
+
+    #searchBody{
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        & > *{
+            border: 1px solid black;
+        }
+        #pokemonSearchBar{
+            width: 50%;
+        }
+        button{
+            font-size: 15px;
+            padding: 5px 15px 5px 15px;
+            background-color: $pokeball-red;
+            color: white
+        }
+    }
+
+    #queryResults{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 10px;
+        gap: 30px;
+    }
+}
+
+
+
+

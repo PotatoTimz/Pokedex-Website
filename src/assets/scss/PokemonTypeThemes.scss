@@ -230,9 +230,6 @@ $fairy-light: #FFB6C1;
     @include bg-light($fairy-light, $fairy);
 }
 
-#pokemonSearchBar{
-    width:20%;
-}
 #queryResults{
     display: flex;
     justify-content: center;

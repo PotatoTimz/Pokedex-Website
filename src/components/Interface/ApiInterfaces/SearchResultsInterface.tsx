@@ -9,3 +9,15 @@ export interface SearchQueryInfo {
   previous: string;
   results: Array<SearchResult>;
 }
+
+export const defaultSearchQuery: SearchQueryInfo = {
+  count: 1302,
+  next: "https://pokeapi.co/api/v2/pokemon?offset=1&limit=1",
+  previous: "",
+  results: [
+    {
+      name: "bulbasaur",
+      url: "https://pokeapi.co/api/v2/pokemon/1/",
+    },
+  ],
+};

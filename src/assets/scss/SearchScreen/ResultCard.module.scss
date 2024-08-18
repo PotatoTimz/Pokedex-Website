@@ -17,7 +17,7 @@
     }
 
     .header{
-        margin-bottom: 30px;
+        margin: 15px 15px 30px 15px;
         display:flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -104,8 +104,7 @@
         .generationInfo{
             font-size: 20px;
             text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            height: 50px;
         }
     }
 }
