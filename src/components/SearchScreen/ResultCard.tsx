@@ -1,5 +1,5 @@
 import ResultCardClasses from "../../assets/scss/SearchScreen/ResultCard.module.scss";
-import { fetchPokemonSearchData } from "../Hooks/FetchAPIData";
+import { fetchPokemonSearchData } from "../Hooks/FetchSearchScreenAPIData";
 import { SearchFilter } from "../Interface/SearchFilterInterface";
 import { useEffect, useState } from "react";
 import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";

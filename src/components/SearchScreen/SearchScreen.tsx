@@ -6,7 +6,7 @@ import {
   searchFilterDefault,
   TypeFilter,
 } from "../Interface/SearchFilterInterface";
-import { fetchSearchResults } from "../Hooks/FetchAPIData";
+import { fetchSearchResults } from "../Hooks/FetchSearchScreenAPIData";
 import {
   defaultSearchQuery,
   SearchQueryInfo,

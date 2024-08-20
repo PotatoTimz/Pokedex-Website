@@ -1,28 +1,17 @@
 import { SearchQueryInfo } from "../Interface/ApiInterfaces/SearchResultsInterface";
 import { PokemonGeneralData } from "../Interface/ApiInterfaces/PokemonInterface";
-import { PokedexData } from "../Interface/PokedexEntryInterface";
+import { PokedexData } from "../Interface/ApiInterfaces/PokemonSpeciesInterface";
 import { SearchCard } from "../Interface/SearchCardInterface";
 import { generationInfo } from "../Interface/GenerationInterface";
+import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";
 
-const testSearchURL = "https://pokeapi.co/api/v2/pokemon?limit=300&offset=0";
-const testSearchURL2 = "https://pokeapi.co/api/v2/pokemon?limit=150&offset=150";
+const pokemonSearchQueryURL =
+  "https://pokeapi.co/api/v2/pokemon?limit=300&offset=0";
 const pokemonInfoURL = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonPokedexURL = "https://pokeapi.co/api/v2/pokemon-species/";
 
-const convertFirstCharacterUpper = (name: string) => {
-  const firstCharacter = name.charAt(0).toUpperCase();
-  return firstCharacter.concat(name.substring(1, name.length));
-};
-
 const fetchSearchResults = async (): Promise<SearchQueryInfo> => {
-  const response = await fetch(testSearchURL);
-  const responseJson = await response.json();
-
-  return responseJson;
-};
-
-const fetchSearchResults2 = async (): Promise<SearchQueryInfo> => {
-  const response = await fetch(testSearchURL2);
+  const response = await fetch(pokemonSearchQueryURL);
   const responseJson = await response.json();
 
   return responseJson;
@@ -62,4 +51,4 @@ const fetchPokemonSearchData = async (id: string): Promise<SearchCard> => {
   };
 };
 
-export { fetchSearchResults, fetchSearchResults2, fetchPokemonSearchData };
+export { fetchSearchResults, fetchPokemonSearchData };

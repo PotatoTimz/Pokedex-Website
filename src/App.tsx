@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import SearchScreen from "./components/SearchScreen/SearchScreen";
+import PokemonDataPage from "./components/PokemonDataPage/PokemonDataPage";
 
 function App() {
   return (
     <>
       <NavBar></NavBar>
-      <SearchScreen></SearchScreen>
+      <PokemonDataPage></PokemonDataPage>
+      {/* <SearchScreen></SearchScreen> */}
     </>
   );
 }

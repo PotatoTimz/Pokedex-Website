@@ -76,6 +76,48 @@ export interface OtherSprites {
   "official-artwork": OfficialArtwork;
 }
 
+export interface PokemonVersionSprites {
+  [generation: string]: {
+    [version: string]: {
+      back_default?: string | null;
+      back_gray?: string | null;
+      back_transparent?: string | null;
+      back_shiny?: string | null;
+      back_shiny_transparent?: string | null;
+      front_default?: string | null;
+      front_gray?: string | null;
+      front_transparent?: string | null;
+      front_shiny?: string | null;
+      front_shiny_transparent?: string | null;
+      animated?: {
+        back_default?: string | null;
+        back_female?: string | null;
+        back_shiny?: string | null;
+        back_shiny_female?: string | null;
+        front_default?: string | null;
+        front_female?: string | null;
+        front_shiny?: string | null;
+        front_shiny_female?: string | null;
+      };
+    };
+  };
+}
+
+export interface Sprites {
+  front_default: string;
+  other: OtherSprites;
+  versions: PokemonVersionSprites;
+}
+
+export interface BaseStatsInfo {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: "";
+  };
+}
+
 export interface PokemonGeneralData {
   abilities: AbilityDetail[];
   base_experience: number;
@@ -93,11 +135,8 @@ export interface PokemonGeneralData {
     name: string;
     url: string;
   };
-  sprites: {
-    front_default: string;
-    other: OtherSprites;
-  };
-  stats: Stat[];
+  sprites: Sprites;
+  stats: BaseStatsInfo[];
   types: TypeDetail[];
   weight: number;
 }
@@ -134,7 +173,7 @@ export const defaultPokemonData = {
       },
     },
   },
-  stats: [],
+  stats: Array<BaseStatsInfo>,
   types: [],
   weight: 0,
 };
