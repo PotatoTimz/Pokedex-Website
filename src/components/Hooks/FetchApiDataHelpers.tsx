@@ -2,6 +2,7 @@ import {
   EggGroup,
   FlavorTextEntry,
   PokedexData,
+  PokemonVariety,
 } from "../Interface/ApiInterfaces/PokemonSpeciesInterface";
 import {
   AbilityDetail,
@@ -193,10 +194,21 @@ export const getMiscData = (
     "base-happiness": pokeSpeciesData.base_happiness,
     "egg-groups": eggGroups,
     "growth-rate": convertFirstCharacterUpper(pokeSpeciesData.growth_rate.name),
-    habitat: pokeSpeciesData.habitat.name,
     height: pokeData.height,
     weight: pokeData.weight,
   };
 
   return miscData;
+};
+
+export const getVariants = (pokeSpeciesData: PokedexData): Array<string> => {
+  let pokemonVariants: Array<string> = [];
+
+  pokeSpeciesData.varieties.forEach((species) => {
+    let url: string = species.pokemon.url;
+
+    pokemonVariants.push(url.substring(34, url.length - 1));
+  });
+
+  return pokemonVariants;
 };

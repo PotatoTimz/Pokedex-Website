@@ -1,75 +1,79 @@
 // Type Colors
 // Normal Type
-$normal-dark: #708090;
-$normal-light: #D3D3D3;
-
-// Fire Type
-$fire-dark: #DC143C;
-$fire-light: #F08080;
-
-// Water Type
-$water-dark: #2062AC;
-$water-light: #5A8BCD;
-
-// Electric Type
-$electric-dark: #DAA520;
-$electric-light: #FFFACD;
-
-// Grass Type
-$grass-dark: #41AC41;
-$grass-light: #83CD6A;
-
-// Ice Type
-$ice-dark: #4682B4;
-$ice-light: #E0FFFF;
-
-// Fighting Type
-$fighting-dark: #800000;
-$fighting-light: #C22E28;
-
-// Poison Type
-$poison-dark: #9400D3;
-$poison-light: #DA70D6;
-
-// Ground Type
-$ground-dark: #8B4513;
-$ground-light: #D2B48C;
-
-// Flying Type
-$flying-dark: #191970;
-$flying-light: #87CEFA;
-
-// Psychic Type
-$psychic-dark: #EE83B4;
-$psychic-light: #FFB4D5;
-
-// Bug Type
-$bug-dark: #7BD55A;
-$bug-light:#A6B91A;
-
-// Rock Type
-$rock-dark: #2F4F4F;
-$rock-light: #DEB887;
-
-// Ghost Type
-$ghost-dark: #483D8B;
-$ghost-light: #866db6;
-
-// Dragon Type
-$dragon-dark: #104A8B;
-$dragon-light: #5fa4b8;
-
-// Dark Type
-$dark-dark: #000000;
-$dark-light: #696969;
-
-// Steel Type
-$steel-dark: #808080;
-$steel-light: #C0C0C0;
-
-// Fairy Type
-$fairy: #C71585;
-$fairy-light: #FFB6C1;
+$types: (
+    'normal': (
+        'dark': #708090,
+        'light': #D3D3D3
+    ),
+    'fire': (
+        'dark': #DC143C,
+        'light': #F08080
+    ),
+    'water': (
+        'dark': #2062AC,
+        'light': #5A8BCD
+    ),
+    'electric': (
+        'dark': #DAA520,
+        'light': #FFFACD
+    ),
+    'grass': (
+        'dark': #41AC41,
+        'light': #83CD6A
+    ),
+    'ice': (
+        'dark': #4682B4,
+        'light': #E0FFFF
+    ),
+    'fighting': (
+        'dark': #800000,
+        'light': #C22E28
+    ),
+    'poison': (
+        'dark': #9400D3,
+        'light': #DA70D6
+    ),
+    'ground': (
+        'dark': #8B4513,
+        'light': #D2B48C
+    ),
+    'flying': (
+        'dark': #191970,
+        'light': #87CEFA
+    ),
+    'psychic': (
+        'dark': #EE83B4,
+        'light': #FFB4D5
+    ),
+    'bug': (
+        'dark': #7BD55A,
+        'light': #A6B91A
+    ),
+    'rock': (
+        'dark': #2F4F4F,
+        'light': #DEB887
+    ),
+    'ghost': (
+        'dark': #483D8B,
+        'light': #866db6
+    ),
+    'dragon': (
+        'dark': #104A8B,
+        'light': #5fa4b8
+    ),
+    'dark': (
+        'dark': #000000,
+        'light': #696969
+    ),
+    'steel': (
+        'dark': #808080,
+        'light': #C0C0C0
+    ),
+    'fairy': (
+        'dark': #C71585,
+        'light': #FFB6C1
+    )
+);
 
 // Mixin for dark background with border
 @mixin bg-dark($bg-color, $border-color) {
@@ -86,149 +90,34 @@ $fairy-light: #FFB6C1;
                  0.75px 0.75px 0 black;
 }
 
-// Normal Type
-.bg-normal-dark {
-    @include bg-dark($normal-dark, $normal-light);
-}
-.bg-normal-light {
-    @include bg-light($normal-light, $normal-dark);
+@mixin border-color($border-color){
+    border-color: $border-color !important;
 }
 
-// Fire Type
-.bg-fire-dark {
-    @include bg-dark($fire-dark, $fire-light);
-}
-.bg-fire-light {
-    @include bg-light($fire-light, $fire-dark);
-}
-
-// Water Type
-.bg-water-dark {
-    @include bg-dark($water-dark, $water-light);
-}
-.bg-water-light {
-    @include bg-light($water-light, $water-dark);
-}
-
-// Electric Type
-.bg-electric-dark {
-    @include bg-dark($electric-dark, $electric-light);
-}
-.bg-electric-light {
-    @include bg-light($electric-light, $electric-dark);
-}
-
-// Grass Type
-.bg-grass-dark {
-    @include bg-dark($grass-dark, $grass-light);
-}
-.bg-grass-light {
-    @include bg-light($grass-light, $grass-dark);
+// Generate classes for dark backgrounds with borders
+@each $type, $colors in $types {
+    @each $shade, $color in $colors {
+        @if $shade == 'dark' {
+            $light-color: map-get($colors, 'light');
+            .bg-#{$type}-#{$shade} {
+                @include bg-dark($color, $light-color);
+            }
+            .border-#{$type}-#{$shade} {
+                @include border-color($color)
+            }
+        }
+        @else{
+            $dark-color: map-get($colors, 'dark');
+            .bg-#{$type}-#{$shade} {
+                @include bg-light($color, $dark-color);
+            }
+            .border-#{$type}-#{$shade} {
+                @include border-color($color)
+            }
+        }
+    }
 }
 
-// Ice Type
-.bg-ice-dark {
-    @include bg-dark($ice-dark, $ice-light);
-}
-.bg-ice-light {
-    @include bg-light($ice-light, $ice-dark);
-}
-
-// Fighting Type
-.bg-fighting-dark {
-    @include bg-dark($fighting-dark, $fighting-light);
-}
-.bg-fighting-light {
-    @include bg-light($fighting-light, $fighting-dark);
-}
-
-// Poison Type
-.bg-poison-dark {
-    @include bg-dark($poison-dark, $poison-light);
-}
-.bg-poison-light {
-    @include bg-light($poison-light, $poison-dark);
-}
-
-// Ground Type
-.bg-ground-dark {
-    @include bg-dark($ground-dark, $ground-light);
-}
-.bg-ground-light {
-    @include bg-light($ground-light, $ground-dark);
-}
-
-// Flying Type
-.bg-flying-dark {
-    @include bg-dark($flying-dark, $flying-light);
-}
-.bg-flying-light {
-    @include bg-light($flying-light, $flying-dark);
-}
-
-// Psychic Type
-.bg-psychic-dark {
-    @include bg-dark($psychic-dark, $psychic-light);
-}
-.bg-psychic-light {
-    @include bg-light($psychic-light, $psychic-dark);
-}
-
-// Bug Type
-.bg-bug-dark {
-    @include bg-dark($bug-dark, $bug-light);
-}
-.bg-bug-light {
-    @include bg-light($bug-light, $bug-dark);
-}
-
-// Rock Type
-.bg-rock-dark {
-    @include bg-dark($rock-dark, $rock-light);
-}
-.bg-rock-light {
-    @include bg-light($rock-light, $rock-dark);
-}
-
-// Ghost Type
-.bg-ghost-dark {
-    @include bg-dark($ghost-dark, $ghost-light);
-}
-.bg-ghost-light {
-    @include bg-light($ghost-light, $ghost-dark);
-}
-
-// Dragon Type
-.bg-dragon-dark {
-    @include bg-dark($dragon-dark, $dragon-light);
-}
-.bg-dragon-light {
-    @include bg-light($dragon-light, $dragon-dark);
-}
-
-// Dark Type
-.bg-dark-dark {
-    @include bg-dark($dark-dark, $dark-light);
-}
-.bg-dark-light {
-    @include bg-light($dark-light, $dark-dark);
-}
-
-// Steel Type
-.bg-steel-dark {
-    @include bg-dark($steel-dark, $steel-light);
-}
-.bg-steel-light {
-    @include bg-light($steel-light, $steel-dark);
-}
-
-// Fairy Type
-.bg-fairy-dark {
-    @include bg-dark($fairy, $fairy-light);
-}
-.bg-fairy-light {
-    @include bg-light($fairy-light, $fairy);
-}
 
 #queryResults{
     display: flex;

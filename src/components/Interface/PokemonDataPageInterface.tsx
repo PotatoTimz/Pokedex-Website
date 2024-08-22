@@ -50,16 +50,12 @@ export interface MiscData {
   "base-happiness": number;
   "egg-groups": Array<string>;
   "growth-rate": string;
-  habitat: string;
   height: number;
   weight: number;
 }
 
 export interface PokemonDataPageInfo {
-  // base_happiness, egg_groups, growth_rate, habitat,  /pokemon-species
-  // height, weight <- /pokemon
   // is_mythical, is_legendary
-  // variants,
   pokemonName: string;
   pokemonID: string;
   pokemonType: Array<string>;
@@ -67,11 +63,16 @@ export interface PokemonDataPageInfo {
   moveData: MoveList;
   baseStatData: BaseStats;
   abilityData: Array<AbilityInfo>;
+
+  isVariant: boolean;
+
   // From "pokemon-species"
   pokemonRegionName: string;
   pokemonRegionNumber: number;
   gamePokedexEntry: GamePokedexEntry;
   pokemonEvolutionLineUrl: string;
+  pokemonMiscData: MiscData;
+  pokemonVariants: Array<string>;
 }
 
 export const defaultSpriteData: SpriteData = {
@@ -92,7 +93,29 @@ export const defaultMiscData: MiscData = {
   "base-happiness": 0,
   "egg-groups": [],
   "growth-rate": "",
-  habitat: "",
   height: 0,
   weight: 0,
+};
+
+export const pokemonDataPageInfoDefault = {
+  pokemonName: "",
+  pokemonID: "",
+  pokemonType: [],
+  spriteData: defaultSpriteData,
+  moveData: {
+    movesLevelUp: [],
+    movesTutor: [],
+    movesTM: [],
+    movesEgg: [],
+    movesOther: [],
+  },
+  baseStatData: defaultBaseStats,
+  abilityData: [],
+  isVariant: false,
+  pokemonRegionName: "",
+  pokemonRegionNumber: 0,
+  gamePokedexEntry: {},
+  pokemonEvolutionLineUrl: "",
+  pokemonMiscData: defaultMiscData,
+  pokemonVariants: [],
 };

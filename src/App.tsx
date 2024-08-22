@@ -8,7 +8,7 @@ function App() {
     <>
       <NavBar></NavBar>
       <PokemonDataPage></PokemonDataPage>
-      {/* <SearchScreen></SearchScreen> */}
+      <SearchScreen></SearchScreen>
     </>
   );
 }

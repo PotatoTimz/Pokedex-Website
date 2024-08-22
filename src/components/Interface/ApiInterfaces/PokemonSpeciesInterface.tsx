@@ -5,7 +5,7 @@ interface Color {
 }
 
 // Define the interface for the nested `egg_groups` array items
-interface EggGroup {
+export interface EggGroup {
   name: string;
   url: string;
 }
@@ -16,7 +16,7 @@ interface EvolutionChain {
 }
 
 // Define the interface for the nested `flavor_text_entries` array items
-interface FlavorTextEntry {
+export interface FlavorTextEntry {
   flavor_text: string;
   language: {
     name: string;
@@ -75,7 +75,7 @@ interface Pokedex {
 }
 
 // Define the interface for the nested `pokemon` object in `varieties`
-interface PokemonVariety {
+export interface PokemonVariety {
   name: string;
   url: string;
 }

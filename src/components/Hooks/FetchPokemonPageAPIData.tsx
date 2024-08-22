@@ -21,6 +21,7 @@ import {
   getPokedexEntries,
   getPokemonAbilities,
   getMiscData,
+  getVariants,
 } from "./FetchApiDataHelpers";
 
 const pokemonInfoURL = "https://pokeapi.co/api/v2/pokemon/";
@@ -41,13 +42,15 @@ export const fetchPokemonDataPageInfo = async (
     movesOther: [],
   };
   let baseStatData: BaseStats = defaultBaseStats;
-  let pokemonEvolutionLineUrl: string;
-  let abilityData: Array<AbilityInfo>;
+  let pokemonEvolutionLineUrl: string = "";
+  let abilityData: Array<AbilityInfo> = [];
+  let isVariant: boolean = false;
 
   let pokemonRegionName: string = "";
   let pokemonRegionNumber: number = 0;
   let gamePokedexEntry: GamePokedexEntry = {};
   let pokemonMiscData: MiscData = defaultMiscData;
+  let pokemonVariants: Array<string> = [];
 
   const response = await fetch(pokemonInfoURL.concat(id.toString()));
   const responseJson: PokemonGeneralData = await response.json();
@@ -60,14 +63,19 @@ export const fetchPokemonDataPageInfo = async (
   baseStatData = getBaseStats(responseJson.stats);
   abilityData = getPokemonAbilities(responseJson.abilities);
 
-  const response2 = await fetch(pokemonPokedexURL.concat(id.toString()));
-  const responseJson2: PokedexData = await response2.json();
-  gamePokedexEntry = getPokedexEntries(responseJson2.flavor_text_entries);
-  const genInfo = generationInfo(responseJson2.generation.name);
-  pokemonRegionName = genInfo.region;
-  pokemonRegionNumber = genInfo["generation-number"];
-  pokemonEvolutionLineUrl = responseJson2.evolution_chain.url;
-  pokemonMiscData = getMiscData(responseJson, responseJson2);
+  if (parseInt(id) < 1025) {
+    const response2 = await fetch(pokemonPokedexURL.concat(id.toString()));
+    const responseJson2: PokedexData = await response2.json();
+    gamePokedexEntry = getPokedexEntries(responseJson2.flavor_text_entries);
+    const genInfo = generationInfo(responseJson2.generation.name);
+    pokemonRegionName = genInfo.region;
+    pokemonRegionNumber = genInfo["generation-number"];
+    pokemonEvolutionLineUrl = responseJson2.evolution_chain.url;
+    pokemonMiscData = getMiscData(responseJson, responseJson2);
+    pokemonVariants = getVariants(responseJson2);
+  } else {
+    isVariant = true;
+  }
 
   return {
     pokemonID,
@@ -81,6 +89,8 @@ export const fetchPokemonDataPageInfo = async (
     baseStatData,
     gamePokedexEntry,
     pokemonEvolutionLineUrl,
+    isVariant,
     pokemonMiscData,
+    pokemonVariants,
   };
 };
