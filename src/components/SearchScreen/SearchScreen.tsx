@@ -13,6 +13,7 @@ import {
 } from "../Interface/ApiInterfaces/SearchResultsInterface";
 import ResultCard from "../SearchScreen/ResultCard";
 import FilterForm from "./FilterForm";
+import { Link } from "react-router-dom";
 
 function SearchScreen() {
   const [searchQuery, setSearchQuery] =
@@ -101,12 +102,18 @@ function SearchScreen() {
 
       <div id={SearchScreenMain["queryResults"]}>
         {searchQuery.results.map((pokemon, index) => {
+          const pokemonId = pokemon.url.substring(34, pokemon.url.length - 1);
           return (
-            <ResultCard
-              key={`${pokemon}-${index}`}
-              id={pokemon.url.substring(34, pokemon.url.length - 1)}
-              searchFilter={searchFilter}
-            ></ResultCard>
+            <Link
+              to={`/pokemon/${pokemonId}`}
+              style={{ textDecoration: "none" }}
+            >
+              <ResultCard
+                key={`${pokemon}-${index}`}
+                id={pokemonId}
+                searchFilter={searchFilter}
+              ></ResultCard>
+            </Link>
           );
         })}
       </div>

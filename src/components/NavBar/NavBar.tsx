@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 function NavBar() {
   return (
     <div id="NavBar">
-      <p id="Title">Pokedex</p>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
+        <p id="Title">Pokedex</p>
+      </Link>
     </div>
   );
 }

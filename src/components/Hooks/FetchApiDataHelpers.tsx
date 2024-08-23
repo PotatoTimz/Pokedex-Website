@@ -157,9 +157,10 @@ export const getPokedexEntries = (pokedexEntries: Array<FlavorTextEntry>) => {
   pokedexEntries.forEach((game: FlavorTextEntry) => {
     if (game.language.name === "en") {
       const gameName = game.version.name;
+      const pokedexEntry = game.flavor_text.replace("\f", "");
       pokedexEntryData = {
         ...pokedexEntryData,
-        [gameName]: game.flavor_text,
+        [gameName]: pokedexEntry,
       };
     }
   });

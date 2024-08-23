@@ -1,0 +1,27 @@
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5em
+}
+.column{
+    display: flex;
+    flex-direction: column;
+
+    &>h1{
+        border-bottom: 3px solid gray;
+    }
+
+}
+
+#body{
+    position: block;
+    padding-top: 55px;
+    //background-color: red;
+    width: auto;
+    height: auto;
+    margin: 1em 8em 1em 8em;
+}
+
+
