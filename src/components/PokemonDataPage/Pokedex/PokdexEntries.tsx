@@ -1,4 +1,4 @@
-import PokedexEntriesClasses from "../../../assets/scss/PokemonDataScreen/PokemonDataPokedexEntries.module.scss";
+import PokedexEntriesCss from "../../../assets/scss/PokemonDataScreen/PokemonDataPokedexEntries.module.scss";
 import { PokemonDataPageInfo } from "../../Interface/PokemonDataPageInterface";
 import GenerationPokedex from "./GenerationPokedex";
 
@@ -72,8 +72,8 @@ function PokedexEntries(props: Props) {
   return (
     <>
       <div
-        id={PokedexEntriesClasses["pokedexSection"]}
-        className={`${PokedexEntriesClasses["column"]} bg-${primaryType}-dark border-${primaryType}-dark`}
+        id={PokedexEntriesCss["pokedexSection"]}
+        className={`${PokedexEntriesCss["column"]} bg-${primaryType}-dark border-${primaryType}-dark`}
       >
         {1 >= generationNumber ? (
           <GenerationPokedex

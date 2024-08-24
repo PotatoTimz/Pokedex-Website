@@ -3,25 +3,32 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5em
+    width: 100%;
+    gap: 5em;
+
+    &:first-of-type{
+        margin-top: 2em;
+    }
+
+    &>h1{
+        width: 100%;
+        border-bottom: 3px solid gray;
+    }
 }
 .column{
     display: flex;
     flex-direction: column;
-
-    &>h1{
-        border-bottom: 3px solid gray;
-    }
-
+    justify-content: center;
 }
 
 #body{
+    background-color: white;
     position: block;
     padding-top: 55px;
-    //background-color: red;
     width: auto;
-    height: auto;
-    margin: 1em 8em 1em 8em;
+    height: fit-content;
+    margin: 0 4% 0 4%;
+    padding-bottom: 5rem
 }
 
 

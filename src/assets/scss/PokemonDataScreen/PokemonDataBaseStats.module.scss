@@ -1,0 +1,84 @@
+$stat-colors-light: (
+    "HP": #fd595c,
+    "Attack": #f4ae76,
+    "Defense": #f9e175,
+    "SpAttack": #9db8f3,
+    "SpDefense": #abd69a,
+    "Speed": #f992b4,
+);
+
+$stat-colors-dark: (
+    "HP": #ff0000,
+    "Attack": #f18131,
+    "Defense": #f9ce34,
+    "SpAttack": #6590f1,
+    "SpDefense": #75c853,
+    "Speed": #f8578b,
+);
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    height: auto;
+    width: 97%;
+    padding: 1%;
+    border-radius: 5px;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+}
+
+#baseStats{
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    border: 1rem solid;
+
+    .statName{
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        width: 5em;
+        height: 2em;
+        line-height: 2em;
+    }
+    .statBar{
+        font-size: 16px;
+        color: white;
+        font-weight: bold;
+        border: 5px solid;
+        line-height: 2em;
+        padding-left: 1em;
+        height: 2em;
+    }
+
+}
+
+@mixin stat-background($color){
+    background-color: $color;
+    border-color: $color !important;
+    color: red;
+}
+
+@each $stat, $color in $stat-colors-light{
+    .#{$stat}-background-light{
+        @include stat-background($color)
+    }
+}
+
+@each $stat, $color in $stat-colors-dark{
+    .#{$stat}-background-dark{
+        @include stat-background($color)
+    }
+}

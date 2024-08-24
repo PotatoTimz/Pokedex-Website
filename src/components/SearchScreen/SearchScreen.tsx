@@ -105,11 +105,11 @@ function SearchScreen() {
           const pokemonId = pokemon.url.substring(34, pokemon.url.length - 1);
           return (
             <Link
+              key={`${pokemon}-${index}`}
               to={`/pokemon/${pokemonId}`}
               style={{ textDecoration: "none" }}
             >
               <ResultCard
-                key={`${pokemon}-${index}`}
                 id={pokemonId}
                 searchFilter={searchFilter}
               ></ResultCard>

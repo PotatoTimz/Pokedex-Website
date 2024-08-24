@@ -1,0 +1,35 @@
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+#banner{
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bannerLink{
+    width: 120px;
+    border-width:20px;
+    img{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

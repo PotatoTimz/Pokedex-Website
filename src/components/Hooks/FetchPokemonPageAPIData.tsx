@@ -12,6 +12,7 @@ import {
   AbilityInfo,
   MiscData,
   defaultMiscData,
+  BannerInfo,
 } from "../Interface/PokemonDataPageInterface";
 import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";
 import {
@@ -93,4 +94,24 @@ export const fetchPokemonDataPageInfo = async (
     pokemonMiscData,
     pokemonVariants,
   };
+};
+
+export const fetchPokemonBannerData = async (
+  id: number
+): Promise<BannerInfo | undefined> => {
+  if (id <= 0 || id > 1025) {
+    return undefined;
+  }
+
+  let pokemonIcon: string = "";
+  let pokemonName: string = "";
+  let pokemonId: number = id;
+
+  const response = await fetch(pokemonInfoURL.concat(id.toString()));
+  const responseJson: PokemonGeneralData = await response.json();
+
+  pokemonIcon = responseJson.sprites.front_default;
+  pokemonName = responseJson.name;
+
+  return { pokemonIcon, pokemonName, pokemonId };
 };

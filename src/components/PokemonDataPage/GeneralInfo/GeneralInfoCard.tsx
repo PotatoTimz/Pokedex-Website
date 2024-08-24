@@ -2,9 +2,9 @@ import {
   AbilityInfo,
   PokemonDataPageInfo,
   SpriteData,
-} from "../Interface/PokemonDataPageInterface";
-import GeneralInfo from "../../assets/scss/PokemonDataScreen/PokemonDataGeneralInfo.module.scss";
-import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";
+} from "../../Interface/PokemonDataPageInterface";
+import GeneralInfoCss from "../../../assets/scss/PokemonDataScreen/PokemonDataGeneralInfo.module.scss";
+import { convertFirstCharacterUpper } from "../../Utilities/UtilityFunctions";
 interface Props {
   pokemonData: PokemonDataPageInfo;
 }
@@ -30,15 +30,18 @@ function GeneralInfoCard(props: Props) {
 
   return (
     <div
-      id={`${GeneralInfo["generalInfo"]}`}
-      className={`${GeneralInfo["column"]} bg-${primaryType}-dark`}
+      id={`${GeneralInfoCss["generalInfo"]}`}
+      className={`${GeneralInfoCss["column"]} bg-${primaryType}-dark`}
     >
       {/* Name and ID */}
       <div
-        id={GeneralInfo["nameAndInfo"]}
-        className={`border-${primaryType}-light ${GeneralInfo["infoCardLarge"]}`}
+        id={GeneralInfoCss["nameAndInfo"]}
+        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
       >
-        <div id={GeneralInfo["nameTag"]} className={`${GeneralInfo["row"]}`}>
+        <div
+          id={GeneralInfoCss["nameTag"]}
+          className={`${GeneralInfoCss["row"]}`}
+        >
           <h1>{name}</h1>
           <h1>#{id}</h1>
         </div>
@@ -46,25 +49,25 @@ function GeneralInfoCard(props: Props) {
 
       {/* image */}
       <div
-        id={`${GeneralInfo["pokemonPortrait"]}`}
-        className={`border-${primaryType}-light ${GeneralInfo["infoCardLarge"]}`}
+        id={`${GeneralInfoCss["pokemonPortrait"]}`}
+        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
       >
         <img src={sprites["official-artwork"]}></img>
       </div>
 
       {/* Types */}
       <div
-        id={`${GeneralInfo["pokemonTypings"]}`}
-        className={`border-${primaryType}-light ${GeneralInfo["infoCardLarge"]}`}
+        id={`${GeneralInfoCss["pokemonTypings"]}`}
+        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
       >
         <h3>Types</h3>
-        <div className={GeneralInfo["row"]}>
+        <div className={GeneralInfoCss["row"]}>
           {type.map((typing) => {
             return (
               <div
                 key={`${typing}`}
                 className={`${`bg-${typing}-light`} ${
-                  GeneralInfo["pokemonType"]
+                  GeneralInfoCss["pokemonType"]
                 }`}
               >
                 {convertFirstCharacterUpper(typing)}
@@ -76,14 +79,14 @@ function GeneralInfoCard(props: Props) {
 
       {/* Abilities */}
       <div
-        id={`${GeneralInfo["pokemonTypings"]}`}
-        className={`border-${primaryType}-light ${GeneralInfo["infoCardLarge"]}`}
+        id={`${GeneralInfoCss["pokemonTypings"]}`}
+        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
       >
         <h3>Abilities</h3>
-        <div className={GeneralInfo["row"]}>
+        <div className={GeneralInfoCss["row"]}>
           {abilities.map((ability) => {
             return (
-              <div key={`${ability.name}`} className={GeneralInfo["column"]}>
+              <div key={`${ability.name}`} className={GeneralInfoCss["column"]}>
                 <p className={``}>{ability.name}</p>
                 {ability.hidden ? <i>(Hidden Ability)</i> : <></>}
               </div>
@@ -94,11 +97,11 @@ function GeneralInfoCard(props: Props) {
 
       {/* Egg Info */}
       <div
-        id={`${GeneralInfo["pokemonTypings"]}`}
-        className={`border-${primaryType}-light ${GeneralInfo["infoCardLarge"]}`}
+        id={`${GeneralInfoCss["pokemonTypings"]}`}
+        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
       >
         <h3>Egg Famalies</h3>
-        <div className={GeneralInfo["row"]}>
+        <div className={GeneralInfoCss["row"]}>
           {eggGroups.map((eggGroup) => {
             return (
               <p key={`${eggGroup}`} className={``}>
@@ -110,30 +113,30 @@ function GeneralInfoCard(props: Props) {
       </div>
 
       {/* Misc Data */}
-      <div className={`${GeneralInfo["row"]}`}>
+      <div className={`${GeneralInfoCss["row"]}`}>
         <div
-          className={`border-${primaryType}-light ${GeneralInfo["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
         >
           <h3>Base Happiness:</h3>
           <p>{baseHappiness}</p>
         </div>
         <div
-          className={`border-${primaryType}-light ${GeneralInfo["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
         >
           <h3>Growth Rate:</h3>
           <p>{growthRate}</p>
         </div>
       </div>
 
-      <div className={`${GeneralInfo["row"]}`}>
+      <div className={`${GeneralInfoCss["row"]}`}>
         <div
-          className={`border-${primaryType}-light ${GeneralInfo["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
         >
           <h3>Height:</h3>
           <p>{height}</p>
         </div>
         <div
-          className={`border-${primaryType}-light ${GeneralInfo["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
         >
           <h3>Weight:</h3>
           <p>{weight}</p>

@@ -1,4 +1,4 @@
-import PokedexEntriesClasses from "../../../assets/scss/PokemonDataScreen/PokemonDataPokedexEntries.module.scss";
+import PokedexEntriesCss from "../../../assets/scss/PokemonDataScreen/PokemonDataPokedexEntries.module.scss";
 import { convertFirstCharacterUpper } from "../../Utilities/UtilityFunctions";
 
 interface Props {
@@ -11,24 +11,24 @@ interface Props {
 function GenerationPokedex(props: Props) {
   return (
     <>
-      <div className={PokedexEntriesClasses["generationSection"]}>
+      <div className={PokedexEntriesCss["generationSection"]}>
         <div
-          className={`bg-${props.primaryType}-light ${PokedexEntriesClasses["generationLabel"]}`}
+          className={`bg-${props.primaryType}-light ${PokedexEntriesCss["generationLabel"]}`}
         >
           Generation {props.generationNumber}:
         </div>
         <div
-          className={`${PokedexEntriesClasses["generationPokedexData"]} border-${props.primaryType}-light`}
+          className={`${PokedexEntriesCss["generationPokedexData"]} border-${props.primaryType}-light`}
         >
-          <div className={`${PokedexEntriesClasses["column"]}`}>
+          <div className={`${PokedexEntriesCss["column"]}`}>
             {props.gameTitles.map((title, index) => {
               return props.pokedexEntries[index] !== undefined ? (
-                <div className={`${PokedexEntriesClasses["row"]}`} key={title}>
-                  <div className={`${PokedexEntriesClasses[`${title}-icon`]}`}>
+                <div className={`${PokedexEntriesCss["row"]}`} key={title}>
+                  <div className={`${PokedexEntriesCss[`${title}-icon`]}`}>
                     {convertFirstCharacterUpper(title)}
                   </div>
                   <div
-                    className={`${PokedexEntriesClasses["entry"]} border-${props.primaryType}-dark`}
+                    className={`${PokedexEntriesCss["entry"]} border-${props.primaryType}-dark`}
                   >
                     {props.pokedexEntries[index]}
                   </div>

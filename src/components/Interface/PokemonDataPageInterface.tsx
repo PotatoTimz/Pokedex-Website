@@ -119,3 +119,9 @@ export const pokemonDataPageInfoDefault = {
   pokemonMiscData: defaultMiscData,
   pokemonVariants: [],
 };
+
+export interface BannerInfo {
+  pokemonIcon: string;
+  pokemonName: string;
+  pokemonId: number;
+}
