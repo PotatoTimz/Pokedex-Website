@@ -4,6 +4,7 @@ import { BannerInfo } from "../../Interface/PokemonDataPageInterface";
 
 interface Props {
   bannerItem: BannerInfo;
+  primaryTyping: string;
 }
 
 function BannerItem(props: Props) {

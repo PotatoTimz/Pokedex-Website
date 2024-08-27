@@ -1,0 +1,81 @@
+$physical-attack : #eb5628;
+$status-attack:#828282 ;
+$special-attack: #375ab2;
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    gap: 15px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 10px;
+}
+
+@mixin damageClass($color){
+    background-color: $color;
+    color: white;
+    text-shadow: -0.75px -0.75px 0 black,
+    0.75px -0.75px 0 black,
+    -0.75px 0.75px 0 black,
+    0.75px 0.75px 0 black;
+}
+
+button{
+    width:fit-content;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+    border: 0px;
+    color: white;
+}
+
+
+#moveTable{
+    border: 3px solid;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    
+    thead{
+        border: 10px solid;
+        tr{
+            th{
+                border: 2px solid;
+                color: white;
+                font-size: 15px;
+                text-align: center;
+            }
+        }
+    }
+    tbody{
+        tr{
+            
+            td{
+                font-size: 15px;
+                padding-left: 10px;
+                padding-right: 10px;
+                text-align: center;
+            }
+            .type{
+                color: white !important;
+            }
+            .physical-bg{
+                @include damageClass($physical-attack);
+            }
+            .special-bg{
+                @include damageClass($special-attack);
+            }            
+            .status-bg{
+                @include damageClass($status-attack);
+            }
+        }
+    }
+
+}
+

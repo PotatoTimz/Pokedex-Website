@@ -1,52 +1,29 @@
 import { PokemonDataPageInfo } from "../../Interface/PokemonDataPageInterface";
 import BaseStatsCss from "../../../assets/scss/PokemonDataScreen/PokemonDataBaseStats.module.scss";
 import Stat from "./Stat";
+import { PokemonDataContext } from "../PokemonDataPage";
+import { useContext } from "react";
 
-interface Props {
-  pokemonData: PokemonDataPageInfo;
-}
-
-function BaseStats(props: Props) {
-  const hp = props.pokemonData.baseStatData.hp;
-  const attack = props.pokemonData.baseStatData.attack;
-  const defense = props.pokemonData.baseStatData.defense;
-  const spAttack = props.pokemonData.baseStatData["special-attack"];
-  const spDefense = props.pokemonData.baseStatData["special-defense"];
-  const speed = props.pokemonData.baseStatData.speed;
-
-  const primaryTyping = props.pokemonData.pokemonType[0];
+function BaseStats() {
+  const { baseStatData, pokemonType } = useContext(PokemonDataContext);
+  const hp = baseStatData.hp;
+  const attack = baseStatData.attack;
+  const defense = baseStatData.defense;
+  const spAttack = baseStatData["special-attack"];
+  const spDefense = baseStatData["special-defense"];
+  const speed = baseStatData.speed;
 
   return (
     <div
       id={BaseStatsCss["baseStats"]}
-      className={`bg-${primaryTyping}-light border-${primaryTyping}-dark ${BaseStatsCss["column"]}`}
+      className={`bg-${pokemonType[0]}-light border-${pokemonType[0]}-dark ${BaseStatsCss["column"]}`}
     >
-      <Stat statValue={hp} statName={"HP"} primaryTyping={primaryTyping}></Stat>
-      <Stat
-        statValue={attack}
-        statName={"Attack"}
-        primaryTyping={primaryTyping}
-      ></Stat>
-      <Stat
-        statValue={defense}
-        statName={"Defense"}
-        primaryTyping={primaryTyping}
-      ></Stat>
-      <Stat
-        statValue={spAttack}
-        statName={"SpAttack"}
-        primaryTyping={primaryTyping}
-      ></Stat>
-      <Stat
-        statValue={spDefense}
-        statName={"SpDefense"}
-        primaryTyping={primaryTyping}
-      ></Stat>
-      <Stat
-        statValue={speed}
-        statName={"Speed"}
-        primaryTyping={primaryTyping}
-      ></Stat>
+      <Stat statValue={hp} statName={"HP"}></Stat>
+      <Stat statValue={attack} statName={"Attack"}></Stat>
+      <Stat statValue={defense} statName={"Defense"}></Stat>
+      <Stat statValue={spAttack} statName={"SpAttack"}></Stat>
+      <Stat statValue={spDefense} statName={"SpDefense"}></Stat>
+      <Stat statValue={speed} statName={"Speed"}></Stat>
     </div>
   );
 }

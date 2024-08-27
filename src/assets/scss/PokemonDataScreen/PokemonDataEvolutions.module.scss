@@ -1,0 +1,68 @@
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 15px;
+}
+
+#evolutionLine{
+    width: 70%;
+    .level{
+        padding: 10px;
+        border: 2px solid;
+        border-radius: 10px;
+        width: 100%;
+        .levelTitle{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.feature{
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    img{
+        width: 125px;
+    }
+    div{
+        color: black;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+.typeRow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:5px;
+}
+
+.featureColumn{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 5px;
+}
+
+.type{
+   color: white !important;
+   border-radius: 5px;
+   width: 55px;
+   padding-left: 5px;
+   padding-right: 5px;
+}

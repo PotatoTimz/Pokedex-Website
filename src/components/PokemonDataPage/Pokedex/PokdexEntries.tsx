@@ -1,98 +1,86 @@
+import { useContext } from "react";
 import PokedexEntriesCss from "../../../assets/scss/PokemonDataScreen/PokemonDataPokedexEntries.module.scss";
 import { PokemonDataPageInfo } from "../../Interface/PokemonDataPageInterface";
 import GenerationPokedex from "./GenerationPokedex";
+import { PokemonDataContext } from "../PokemonDataPage";
 
-interface Props {
-  pokemonData: PokemonDataPageInfo;
-}
-
-function PokedexEntries(props: Props) {
-  const generationNumber = props.pokemonData.pokemonRegionNumber;
-  const primaryType = props.pokemonData.pokemonType[0];
+function PokedexEntries() {
+  const { gamePokedexEntry, pokemonRegionNumber, pokemonType } =
+    useContext(PokemonDataContext);
 
   // Generation 1
-  const redEntry: string = props.pokemonData?.gamePokedexEntry.red;
-  const blueEntry: string = props.pokemonData?.gamePokedexEntry.blue;
-  const yellowEntry: string = props.pokemonData?.gamePokedexEntry.yellow;
+  const redEntry: string = gamePokedexEntry.red;
+  const blueEntry: string = gamePokedexEntry.blue;
+  const yellowEntry: string = gamePokedexEntry.yellow;
 
   // Generation 2
-  const goldEntry: string = props.pokemonData?.gamePokedexEntry.gold;
-  const silverEntry: string = props.pokemonData?.gamePokedexEntry.silver;
-  const crystalEntry: string = props.pokemonData?.gamePokedexEntry.crystal;
+  const goldEntry: string = gamePokedexEntry.gold;
+  const silverEntry: string = gamePokedexEntry.silver;
+  const crystalEntry: string = gamePokedexEntry.crystal;
 
   // Generation 3
-  const rubyEntry: string = props.pokemonData?.gamePokedexEntry.ruby;
-  const sapphireEntry: string = props.pokemonData?.gamePokedexEntry.sapphire;
-  const emeraldEntry: string = props.pokemonData?.gamePokedexEntry.emerald;
-  const fireredEntry: string = props.pokemonData?.gamePokedexEntry.firered;
-  const leafgreenEntry: string = props.pokemonData?.gamePokedexEntry.leafgreen;
+  const rubyEntry: string = gamePokedexEntry.ruby;
+  const sapphireEntry: string = gamePokedexEntry.sapphire;
+  const emeraldEntry: string = gamePokedexEntry.emerald;
+  const fireredEntry: string = gamePokedexEntry.firered;
+  const leafgreenEntry: string = gamePokedexEntry.leafgreen;
 
   // Generation 4
-  const diamondEntry: string = props.pokemonData?.gamePokedexEntry.diamond;
-  const pearlEntry: string = props.pokemonData?.gamePokedexEntry.pearl;
-  const platinumEntry: string = props.pokemonData?.gamePokedexEntry.platinum;
-  const heartgoldEntry: string = props.pokemonData?.gamePokedexEntry.heartgold;
-  const soulsilverEntry: string =
-    props.pokemonData?.gamePokedexEntry.soulsilver;
+  const diamondEntry: string = gamePokedexEntry.diamond;
+  const pearlEntry: string = gamePokedexEntry.pearl;
+  const platinumEntry: string = gamePokedexEntry.platinum;
+  const heartgoldEntry: string = gamePokedexEntry.heartgold;
+  const soulsilverEntry: string = gamePokedexEntry.soulsilver;
 
   // Generation 5
-  const blackEntry: string = props.pokemonData?.gamePokedexEntry.black;
-  const whiteEntry: string = props.pokemonData?.gamePokedexEntry.white;
+  const blackEntry: string = gamePokedexEntry.black;
+  const whiteEntry: string = gamePokedexEntry.white;
 
   // Generation 6
-  const xEntry: string = props.pokemonData?.gamePokedexEntry.x;
-  const yEntry: string = props.pokemonData?.gamePokedexEntry.y;
-  const omegaRubyEntry: string =
-    props.pokemonData?.gamePokedexEntry?.["omega-ruby"];
-  const alphaSapphireEntry: string =
-    props.pokemonData?.gamePokedexEntry?.["alpha-sapphire"];
+  const xEntry: string = gamePokedexEntry.x;
+  const yEntry: string = gamePokedexEntry.y;
+  const omegaRubyEntry: string = gamePokedexEntry?.["omega-ruby"];
+  const alphaSapphireEntry: string = gamePokedexEntry?.["alpha-sapphire"];
 
   // Generation 7
-  const sunEntry: string = props.pokemonData?.gamePokedexEntry.sun;
-  const moonEntry: string = props.pokemonData?.gamePokedexEntry.moon;
-  const ultraSunEntry: string =
-    props.pokemonData?.gamePokedexEntry?.["ultra-sun"];
-  const ultraMoonEntry: string =
-    props.pokemonData?.gamePokedexEntry?.["ultra-moon"];
+  const sunEntry: string = gamePokedexEntry.sun;
+  const moonEntry: string = gamePokedexEntry.moon;
+  const ultraSunEntry: string = gamePokedexEntry?.["ultra-sun"];
+  const ultraMoonEntry: string = gamePokedexEntry?.["ultra-moon"];
 
   // Generation 8
-  const swordEntry: string = props.pokemonData?.gamePokedexEntry.sword;
-  const shieldEntry: string = props.pokemonData?.gamePokedexEntry.shield;
-  const letsGoPikachuEntry: string =
-    props.pokemonData?.gamePokedexEntry?.["lets-go-pikachu"];
-  const letsGoEveeEntry: string =
-    props.pokemonData?.gamePokedexEntry?.["lets-go-eevee"];
-  const legendsArceusEntry: string =
-    props.pokemonData?.gamePokedexEntry?.["legends-arceus"];
+  const swordEntry: string = gamePokedexEntry.sword;
+  const shieldEntry: string = gamePokedexEntry.shield;
+  const letsGoPikachuEntry: string = gamePokedexEntry?.["lets-go-pikachu"];
+  const letsGoEveeEntry: string = gamePokedexEntry?.["lets-go-eevee"];
+  const legendsArceusEntry: string = gamePokedexEntry?.["legends-arceus"];
 
   // Generation 9
-  const scarletEntry: string = props.pokemonData?.gamePokedexEntry.scarlet;
-  const violetEntry: string = props.pokemonData?.gamePokedexEntry.violet;
+  const scarletEntry: string = gamePokedexEntry.scarlet;
+  const violetEntry: string = gamePokedexEntry.violet;
 
   return (
     <>
       <div
         id={PokedexEntriesCss["pokedexSection"]}
-        className={`${PokedexEntriesCss["column"]} bg-${primaryType}-dark border-${primaryType}-dark`}
+        className={`${PokedexEntriesCss["column"]} bg-${pokemonType[0]}-dark border-${pokemonType[0]}-dark`}
       >
-        {1 >= generationNumber ? (
+        {1 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[redEntry, blueEntry, yellowEntry]}
             gameTitles={["red", "blue", "yellow"]}
             generationNumber="1"
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
-        {2 >= generationNumber ? (
+        {2 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[goldEntry, silverEntry, crystalEntry]}
             gameTitles={["gold", "silver", "crystal"]}
             generationNumber="2"
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
 
-        {3 >= generationNumber ? (
+        {3 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[
               rubyEntry,
@@ -103,11 +91,10 @@ function PokedexEntries(props: Props) {
             ]}
             gameTitles={["ruby", "sapphire", "emerald", "fireRed", "leafGreen"]}
             generationNumber={"3"}
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
 
-        {4 >= generationNumber ? (
+        {4 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[
               diamondEntry,
@@ -124,20 +111,18 @@ function PokedexEntries(props: Props) {
               "soulSilver",
             ]}
             generationNumber={"4"}
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
 
-        {5 >= generationNumber ? (
+        {5 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[blackEntry, whiteEntry]}
             gameTitles={["black", "white"]}
             generationNumber={"5"}
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
 
-        {6 >= generationNumber ? (
+        {6 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[
               xEntry,
@@ -147,11 +132,10 @@ function PokedexEntries(props: Props) {
             ]}
             gameTitles={["x", "y", "omegaRuby", "alphaSapphire"]}
             generationNumber={"6"}
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
 
-        {7 >= generationNumber ? (
+        {7 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[
               sunEntry,
@@ -161,11 +145,10 @@ function PokedexEntries(props: Props) {
             ]}
             gameTitles={["sun", "moon", "ultraSun", "ultraMoon"]}
             generationNumber={"7"}
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
 
-        {8 >= generationNumber ? (
+        {8 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[
               swordEntry,
@@ -182,16 +165,14 @@ function PokedexEntries(props: Props) {
               "legendsArceus",
             ]}
             generationNumber={"8"}
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
 
-        {9 >= generationNumber ? (
+        {9 >= pokemonRegionNumber ? (
           <GenerationPokedex
             pokedexEntries={[scarletEntry, violetEntry]}
             gameTitles={["scarlet", "violet"]}
             generationNumber={"9"}
-            primaryType={primaryType}
           ></GenerationPokedex>
         ) : null}
       </div>

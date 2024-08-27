@@ -2,7 +2,6 @@ import {
   EggGroup,
   FlavorTextEntry,
   PokedexData,
-  PokemonVariety,
 } from "../Interface/ApiInterfaces/PokemonSpeciesInterface";
 import {
   AbilityDetail,
@@ -15,7 +14,6 @@ import {
   AbilityInfo,
   BaseStats,
   defaultBaseStats,
-  defaultMiscData,
   defaultSpriteData,
   GamePokedexEntry,
   MiscData,

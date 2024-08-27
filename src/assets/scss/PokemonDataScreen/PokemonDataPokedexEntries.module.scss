@@ -92,6 +92,13 @@ $games: (
 
 }
 
+@media screen and (max-width: 600px) {
+    #pokedexSection{
+        width: 90%;
+    }
+  }
+
+
 .entry{
     font-size: 15px;
     flex: 1;

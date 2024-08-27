@@ -1,32 +1,32 @@
 import {
   AbilityInfo,
-  PokemonDataPageInfo,
   SpriteData,
 } from "../../Interface/PokemonDataPageInterface";
 import GeneralInfoCss from "../../../assets/scss/PokemonDataScreen/PokemonDataGeneralInfo.module.scss";
 import { convertFirstCharacterUpper } from "../../Utilities/UtilityFunctions";
-interface Props {
-  pokemonData: PokemonDataPageInfo;
-}
+import { useContext } from "react";
+import { PokemonDataContext } from "../PokemonDataPage";
 
-function GeneralInfoCard(props: Props) {
-  const type: Array<string> = props.pokemonData.pokemonType;
-  const primaryType: string = props.pokemonData.pokemonType[0];
-  const secondaryType: string =
-    props.pokemonData.pokemonType.length >= 2
-      ? props.pokemonData.pokemonType[1]
-      : props.pokemonData.pokemonType[0];
-  const name: string = props.pokemonData.pokemonName;
-  const sprites: SpriteData = props.pokemonData.spriteData;
-  const id: string = props.pokemonData.pokemonID;
-  const abilities: Array<AbilityInfo> = props.pokemonData.abilityData;
-  const eggGroups: Array<string> =
-    props.pokemonData.pokemonMiscData["egg-groups"];
-  const baseHappiness: number =
-    props.pokemonData.pokemonMiscData["base-happiness"];
-  const growthRate: string = props.pokemonData.pokemonMiscData["growth-rate"];
-  const height: number = props.pokemonData.pokemonMiscData.height;
-  const weight: number = props.pokemonData.pokemonMiscData.weight;
+function GeneralInfoCard() {
+  const {
+    pokemonType,
+    pokemonName,
+    spriteData,
+    pokemonID,
+    abilityData,
+    pokemonMiscData,
+  } = useContext(PokemonDataContext);
+
+  const primaryType: string = pokemonType[0];
+  const name: string = pokemonName;
+  const sprites: SpriteData = spriteData;
+  const id: string = pokemonID;
+  const abilities: Array<AbilityInfo> = abilityData;
+  const eggGroups: Array<string> = pokemonMiscData["egg-groups"];
+  const baseHappiness: number = pokemonMiscData["base-happiness"];
+  const growthRate: string = pokemonMiscData["growth-rate"];
+  const height: number = pokemonMiscData.height;
+  const weight: number = pokemonMiscData.weight;
 
   return (
     <div
@@ -62,7 +62,7 @@ function GeneralInfoCard(props: Props) {
       >
         <h3>Types</h3>
         <div className={GeneralInfoCss["row"]}>
-          {type.map((typing) => {
+          {pokemonType.map((typing) => {
             return (
               <div
                 key={`${typing}`}

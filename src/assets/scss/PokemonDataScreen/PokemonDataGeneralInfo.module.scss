@@ -59,6 +59,12 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    #generalInfo{
+        width: 90%;
+    }
+  }
+
 // Pokemon name and Id
 #generalInfo{
     #nameTag{

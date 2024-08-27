@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import BannerCss from "../../../assets/scss/PokemonDataScreen/PokemonDataBanner.module.scss";
 import { BannerInfo } from "../../Interface/PokemonDataPageInterface";
 import { fetchPokemonBannerData } from "../../Hooks/FetchPokemonPageAPIData";
 import { Link, useParams } from "react-router-dom";
-import { convertFirstCharacterUpper } from "../../Utilities/UtilityFunctions";
 import BannerItem from "./BannerItem";
+import { PokemonDataContext } from "../PokemonDataPage";
 
-interface Props {
-  primaryTyping: string;
-}
-
-function Banner(props: Props) {
+function Banner() {
+  const { pokemonType } = useContext(PokemonDataContext);
   const { id } = useParams();
   const [previousPokemon, setPreviousPokemon] = useState<
     BannerInfo | undefined
@@ -26,24 +23,22 @@ function Banner(props: Props) {
     // Previous Data
     fetchPokemonBannerData(parseInt(id as string) - 1).then((response) => {
       setPreviousPokemon(response);
-      console.log(response);
     });
     // Previous Data
     fetchPokemonBannerData(parseInt(id as string)).then((response) => {
       setCurrentPokemon(response);
-      console.log(response);
     });
     // Next Data
     fetchPokemonBannerData(parseInt(id as string) + 1).then((response) => {
       setNextPokemon(response);
     });
-  }, []);
+  }, [id]);
   //className={`${BannerCss["row"]}`}
   return (
     <>
       <div
         id={BannerCss["banner"]}
-        className={`bg-${props.primaryTyping}-dark  ${BannerCss["row"]}`}
+        className={`bg-${pokemonType[0]}-dark  ${BannerCss["row"]}`}
       >
         {previousPokemon !== undefined ? (
           <Link
@@ -53,23 +48,17 @@ function Banner(props: Props) {
           >
             <BannerItem
               bannerItem={previousPokemon}
-              primaryTyping={props.primaryTyping}
+              primaryTyping={pokemonType[0]}
             ></BannerItem>
           </Link>
         ) : (
           <div></div>
         )}
         {currentPokemon !== undefined ? (
-          <Link
-            reloadDocument
-            to={`/pokemon/${currentPokemon.pokemonId}`}
-            style={{ textDecoration: "none" }}
-          >
-            <BannerItem
-              bannerItem={currentPokemon}
-              primaryTyping={props.primaryTyping}
-            ></BannerItem>
-          </Link>
+          <BannerItem
+            bannerItem={currentPokemon}
+            primaryTyping={pokemonType[0]}
+          ></BannerItem>
         ) : (
           <div></div>
         )}
@@ -81,7 +70,7 @@ function Banner(props: Props) {
           >
             <BannerItem
               bannerItem={nextPokemon}
-              primaryTyping={props.primaryTyping}
+              primaryTyping={pokemonType[0]}
             ></BannerItem>
           </Link>
         ) : null}

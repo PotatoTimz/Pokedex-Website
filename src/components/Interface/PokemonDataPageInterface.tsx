@@ -17,7 +17,7 @@ export interface GamePokedexEntry {
   [gameName: string]: string;
 }
 
-export interface MoveData {
+export interface MovePartialData {
   name: string;
   url: string;
   learn_method: string;
@@ -25,11 +25,11 @@ export interface MoveData {
 }
 
 export interface MoveList {
-  movesLevelUp: Array<MoveData>;
-  movesTutor: Array<MoveData>;
-  movesTM: Array<MoveData>;
-  movesEgg: Array<MoveData>;
-  movesOther: Array<MoveData>;
+  movesLevelUp: Array<MovePartialData>;
+  movesTutor: Array<MovePartialData>;
+  movesTM: Array<MovePartialData>;
+  movesEgg: Array<MovePartialData>;
+  movesOther: Array<MovePartialData>;
 }
 
 export interface BaseStats {
@@ -125,3 +125,17 @@ export interface BannerInfo {
   pokemonName: string;
   pokemonId: number;
 }
+
+export interface FeaturePokemon {
+  name: string;
+  types: Array<string>;
+  sprite: string;
+  id: string;
+}
+
+export const defaultFeaturePokemon: FeaturePokemon = {
+  name: "",
+  types: [],
+  sprite: "",
+  id: "",
+};
