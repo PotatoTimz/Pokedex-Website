@@ -1,15 +1,33 @@
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.column{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 #generalInfo{
-    border-radius: 10px;
     width: 30%;
+    border-radius: 10px;
     text-align: center;
     height: fit-content;
+    padding-bottom: 20px;
 
     .infoCardLarge{
         border-radius: 5px;
-        width: 73%;
-        padding: 0.5em;
-        border: 1em solid;
-        margin: 0.5em;
+        box-sizing: border-box;
+        width: 80%;
+        padding: 10px;
+        border: 10px solid;
+        margin: 10px;
         background-color: white;
         h1{
             margin: 5px;
@@ -33,6 +51,29 @@
         }
 
     }
+
+    .generalGrid{
+        display: grid;
+        width: 80%;
+        margin: 10px;
+
+        //background-color: red;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+    .infoCardSmall{
+        border-radius: 5px;
+        border: 5px solid;
+        background-color: white;
+        h3{
+            margin: 0 0 5px 0;
+            font-size: 15px;
+        }
+        p{
+            margin: 0;
+        }
+    }
     
     .infoCardLarge:first-of-type{
         margin-top: 2em;
@@ -41,29 +82,7 @@
     & > .row:last-of-type{
         margin-bottom: 2em;
     }
-
-    .infoCardSmall{
-        border-radius: 5px;
-        width: 29.7%;
-        padding: 0.5em;
-        border: 1em solid;
-        margin: 0.5em;
-        background-color: white;
-        h3{
-            margin: 0 0 10px 0;
-            font-size: 15px;
-        }
-        p{
-            margin: 0;
-        }
-    }
 }
-
-@media screen and (max-width: 600px) {
-    #generalInfo{
-        width: 90%;
-    }
-  }
 
 // Pokemon name and Id
 #generalInfo{
@@ -103,23 +122,14 @@
         color: white;
     }
     .row{
-        gap: 4em;
+        gap: 15px;
         justify-content: center;
     }
 }
 
-.row{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-.column{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+//mobile
+@media screen and (min-width: 319px) and (max-width: 1023px) {
+    #generalInfo{
+        width: 90% !important;
+    }
 }

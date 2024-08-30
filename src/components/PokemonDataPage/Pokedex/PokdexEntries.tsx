@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import PokedexEntriesCss from "../../../assets/scss/PokemonDataScreen/PokemonDataPokedexEntries.module.scss";
-import { PokemonDataPageInfo } from "../../Interface/PokemonDataPageInterface";
 import GenerationPokedex from "./GenerationPokedex";
 import { PokemonDataContext } from "../PokemonDataPage";
 

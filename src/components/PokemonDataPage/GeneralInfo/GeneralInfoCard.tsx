@@ -113,7 +113,7 @@ function GeneralInfoCard() {
       </div>
 
       {/* Misc Data */}
-      <div className={`${GeneralInfoCss["row"]}`}>
+      <div className={`${GeneralInfoCss["generalGrid"]}`}>
         <div
           className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
         >
@@ -126,9 +126,6 @@ function GeneralInfoCard() {
           <h3>Growth Rate:</h3>
           <p>{growthRate}</p>
         </div>
-      </div>
-
-      <div className={`${GeneralInfoCss["row"]}`}>
         <div
           className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
         >

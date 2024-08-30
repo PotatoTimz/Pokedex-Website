@@ -1,4 +1,3 @@
-import { PokemonDataPageInfo } from "../../Interface/PokemonDataPageInterface";
 import BaseStatsCss from "../../../assets/scss/PokemonDataScreen/PokemonDataBaseStats.module.scss";
 import Stat from "./Stat";
 import { PokemonDataContext } from "../PokemonDataPage";

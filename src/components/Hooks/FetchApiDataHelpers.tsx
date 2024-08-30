@@ -200,13 +200,20 @@ export const getMiscData = (
   return miscData;
 };
 
-export const getVariants = (pokeSpeciesData: PokedexData): Array<string> => {
+export const getVariants = (
+  pokeSpeciesData: PokedexData,
+  pokemonId: string
+): Array<string> => {
   let pokemonVariants: Array<string> = [];
 
   pokeSpeciesData.varieties.forEach((species) => {
-    let url: string = species.pokemon.url;
-
-    pokemonVariants.push(url.substring(34, url.length - 1));
+    let id: string = species.pokemon.url.substring(
+      34,
+      species.pokemon.url.length - 1
+    );
+    if (id !== pokemonId) {
+      pokemonVariants.push(id);
+    }
   });
 
   return pokemonVariants;

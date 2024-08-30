@@ -65,6 +65,29 @@ $games: (
     gap: 10px;
 }
 
+@mixin game-icon($color){
+    color: white;
+    padding: 5px 20px 5px 20px;
+    height: 20px;
+    text-align: center;
+    width: 150px;
+    font-size: 20px;
+    background-color: $color;
+    border-radius: 5px;
+    border: 1px solid black;
+
+    text-shadow: -0.75px -0.75px 0 black,
+    0.75px -0.75px 0 black,
+    -0.75px 0.75px 0 black,
+    0.75px 0.75px 0 black;
+}
+
+@each $game, $color in $games{
+    .#{$game}-icon{
+        @include game-icon($color)
+    }
+}
+
 #pokedexSection{
     height: fit-content;
     border-radius: 10px;
@@ -92,40 +115,24 @@ $games: (
 
 }
 
-@media screen and (max-width: 600px) {
-    #pokedexSection{
-        width: 90%;
-    }
-  }
-
-
 .entry{
     font-size: 15px;
     flex: 1;
     padding-left: 10px;
     border: 1px solid black;
     border-radius: 10px;
+    min-width: 45%;
 }
 
-@mixin game-icon($color){
-    color: white;
-    padding: 5px 20px 5px 20px;
-    height: 20px;
-    text-align: center;
-    width: 150px;
-    font-size: 20px;
-    background-color: $color;
-    border-radius: 5px;
-    border: 1px solid black;
-
-    text-shadow: -0.75px -0.75px 0 black,
-    0.75px -0.75px 0 black,
-    -0.75px 0.75px 0 black,
-    0.75px 0.75px 0 black;
+@media screen and (max-width: 767px) {
+    #pokedexSection{
+        width: 90% !important;
+    }
 }
 
-@each $game, $color in $games{
-    .#{$game}-icon{
-        @include game-icon($color)
+//laptop
+@media screen and (min-width:768px) and (max-width: 979px){
+    #pokedexSection{
+        width: 90% !important;
     }
 }

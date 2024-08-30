@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import BaseStatsCss from "../../../assets/scss/PokemonDataScreen/PokemonDataBaseStats.module.scss";
-import { PokemonDataContext } from "../PokemonDataPage";
 
 interface Props {
   statName: string;

@@ -81,7 +81,7 @@ export const fetchPokemonDataPageInfo = async (
     pokemonRegionNumber = genInfo["generation-number"];
     pokemonEvolutionLineUrl = responseJson2.evolution_chain.url;
     pokemonMiscData = getMiscData(responseJson, responseJson2);
-    pokemonVariants = getVariants(responseJson2);
+    pokemonVariants = getVariants(responseJson2, pokemonID);
   } else {
     isVariant = true;
   }

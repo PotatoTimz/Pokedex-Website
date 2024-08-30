@@ -1,39 +1,87 @@
 $pokeball-red: #C52941;
 
-#body{
-    background-color: white;
-    position: relative;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    padding-top: 80px;
-
-    #searchBody{
+@media screen and (min-width: 768px) and (max-width: 4000px) {   
+    #body{
+        position: relative;
+        width: 90%;
         display: flex;
-        justify-content: center;
-        width: 50%;
-        & > *{
-            border: 1px solid black;
-        }
-        #pokemonSearchBar{
+        flex-direction: column;
+        gap: 10px;
+        align-items:center;
+        padding-top: 80px;
+
+        #searchBody{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             width: 50%;
+            gap: 5px;
+            & > *{
+                border: 1px solid black;
+            }
+            #pokemonSearchBar{
+                width: 50%;
+            }
+            button{
+                font-size: 15px;
+                padding: 5px 15px 5px 15px;
+                background-color: $pokeball-red;
+                color: white
+            }
+            
         }
-        button{
-            font-size: 15px;
-            padding: 5px 15px 5px 15px;
-            background-color: $pokeball-red;
-            color: white
-        }
-        
-    }
 
-    #queryResults{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+        #queryResults{
+            flex-direction: row;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 30px;
+        }
+    }
+}
+
+//mobile
+@media screen and (min-width: 319px) and (max-width: 766px) {
+    #body{
+        background-color: white;
+        position: relative;
         width: 100%;
-        padding: 10px;
-        gap: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items:center;
+        padding-top: 80px;
+
+        #searchBody{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 5px;
+            & > *{
+                border: 1px solid black;
+            }
+            #pokemonSearchBar{
+                width: 100%;
+            }
+            button{
+                font-size: 15px;
+                padding: 5px 15px 5px 15px;
+                background-color: $pokeball-red;
+                color: white
+            }
+            
+        }
+
+        #queryResults{
+            flex-direction: row;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 30px;
+        }
     }
 }

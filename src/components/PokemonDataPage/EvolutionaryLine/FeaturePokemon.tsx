@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 interface Props {
   id: string;
-  hierarchyLevel: number;
 }
 
 function featurePokemon(props: Props) {

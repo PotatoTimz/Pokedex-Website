@@ -18,8 +18,7 @@
 }
 
 .bannerLink{
-    width: 120px;
-    border-width:20px;
+    width: 100px;
     height: 100%;
     img{
         margin: 0;
@@ -32,5 +31,18 @@
         color: white;
         padding-left: 10px;
         padding-right: 10px;
+    }
+}
+
+//mobile
+@media screen and (min-width: 321px) and (max-width: 767px) {
+    .bannerLink{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .bannerLink{
+        width: 75px;
     }
 }

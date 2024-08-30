@@ -115,7 +115,7 @@ export const pokemonDataPageInfoDefault = {
   pokemonRegionName: "",
   pokemonRegionNumber: 0,
   gamePokedexEntry: {},
-  pokemonEvolutionLineUrl: "",
+  pokemonEvolutionLineUrl: "https://pokeapi.co/api/v2/evolution-chain/1/",
   pokemonMiscData: defaultMiscData,
   pokemonVariants: [],
 };

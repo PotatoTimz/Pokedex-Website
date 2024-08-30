@@ -1,8 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import {
-  MovePartialData,
-  PokemonDataPageInfo,
-} from "../../Interface/PokemonDataPageInterface";
+import { useContext, useState } from "react";
+import { MovePartialData } from "../../Interface/PokemonDataPageInterface";
 import MoveInfo from "./MoveInfo";
 import MoveListCss from "../../../assets/scss/PokemonDataScreen/PokemonDataMovelist.module.scss";
 import { PokemonDataContext } from "../PokemonDataPage";
@@ -22,7 +19,7 @@ function MoveList() {
 
   return (
     <div className={`${MoveListCss["column"]}`}>
-      <div className={`${MoveListCss["row"]}`}>
+      <div id={MoveListCss["moveButtons"]} className={`${MoveListCss["row"]}`}>
         <button
           className={`bg-${pokemonType[0]}-light`}
           onClick={() => setMoveToggle("level")}
@@ -48,11 +45,12 @@ function MoveList() {
           Tutor
         </button>
       </div>
-      <div className={`${MoveListCss["row"]}`}>
-        <table
-          id={MoveListCss["moveTable"]}
-          className={`border-${pokemonType[0]}-dark `}
-        >
+
+      <div
+        id={MoveListCss["moveTable"]}
+        className={`${MoveListCss["row"]} border-${pokemonType[0]}-dark`}
+      >
+        <table>
           <thead className={`bg-${pokemonType[0]}-light`}>
             <tr>
               {moveToggle === "level" ? (

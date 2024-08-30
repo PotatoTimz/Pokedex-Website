@@ -12,6 +12,7 @@ import BaseStats from "./BaseStats/BaseStats";
 import Banner from "./Banner/Banner";
 import MoveList from "./MoveList/MoveList";
 import EvolutionaryLine from "./EvolutionaryLine/EvolutionaryLine";
+import AlternativeForms from "./EvolutionaryLine/AlternativeForms";
 
 export const PokemonDataContext = createContext<PokemonDataPageInfo>(
   pokemonDataPageInfoDefault
@@ -29,7 +30,7 @@ function PokemonDataPage() {
 
       fetchPokemonDataPageInfo(pokemonID).then((response) => {
         setPokemonData(response);
-        //console.log(response);
+        console.log(response);
       });
     }
   }, [id]);
@@ -60,6 +61,19 @@ function PokemonDataPage() {
           <div className={MainScreenCss["row"]}>
             <EvolutionaryLine />
           </div>
+
+          {pokemonData.pokemonVariants.length > 0 ? (
+            <>
+              <div className={MainScreenCss["row"]}>
+                <h1 className={`border-${pokemonData.pokemonType[0]}-light`}>
+                  Other Forms and Varients
+                </h1>
+              </div>
+              <div className={MainScreenCss["row"]}>
+                <AlternativeForms />
+              </div>
+            </>
+          ) : null}
 
           <div className={MainScreenCss["row"]}>
             <h1 className={`border-${pokemonData.pokemonType[0]}-light`}>

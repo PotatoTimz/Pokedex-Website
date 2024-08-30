@@ -42,7 +42,6 @@ function EvolutionaryLine() {
                   <FeaturePokemon
                     key={url}
                     id={url.substring(42, url.length - 1)}
-                    hierarchyLevel={index}
                   />
                 );
               })}

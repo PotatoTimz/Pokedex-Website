@@ -6,9 +6,11 @@ $special-attack: #375ab2;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex: 1;
-    justify-content: center;
     gap: 15px;
+
+    &#moveTable{
+        overflow: scroll;
+    }
 }
 
 .column{
@@ -16,6 +18,7 @@ $special-attack: #375ab2;
     flex-direction: column;
     width: 90%;
     gap: 10px;
+    height: fit-content;
 }
 
 @mixin damageClass($color){
@@ -41,7 +44,13 @@ button{
     padding: 20px;
     border-radius: 10px;
     width: 60%;
-    
+    margin-left: auto;
+    margin-right: auto;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
     thead{
         border: 10px solid;
         tr{
@@ -57,9 +66,11 @@ button{
         tr{
             
             td{
+                width: 10em;
                 font-size: 15px;
                 padding-left: 10px;
                 padding-right: 10px;
+                text-wrap: nowrap;
                 text-align: center;
             }
             .type{
@@ -79,3 +90,19 @@ button{
 
 }
 
+#moveButtons{
+    margin-left: auto;
+    margin-right: auto;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+//mobile
+@media screen and (min-width: 321px) and (max-width: 767px) {
+    #moveTable{
+        //padding-left: 0 !important;
+        width: 90% !important;
+    }
+}
