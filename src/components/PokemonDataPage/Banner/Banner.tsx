@@ -42,6 +42,7 @@ function Banner() {
       >
         {previousPokemon !== undefined ? (
           <Link
+            reloadDocument
             to={`/pokemon/${previousPokemon.pokemonId}`}
             style={{ textDecoration: "none" }}
           >
