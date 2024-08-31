@@ -1,7 +1,4 @@
-import {
-  AbilityInfo,
-  SpriteData,
-} from "../../Interface/PokemonDataPageInterface";
+import { AbilityInfo } from "../../Interface/PokemonDataPageInterface";
 import GeneralInfoCss from "../../../assets/scss/PokemonDataScreen/PokemonDataGeneralInfo.module.scss";
 import { convertFirstCharacterUpper } from "../../Utilities/UtilityFunctions";
 import { useContext, useState } from "react";

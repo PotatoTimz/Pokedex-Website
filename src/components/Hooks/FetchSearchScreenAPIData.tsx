@@ -10,7 +10,7 @@ const pokemonSearchQueryURL =
 const pokemonInfoURL = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonPokedexURL = "https://pokeapi.co/api/v2/pokemon-species/";
 
-const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+//const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 const fetchSearchResults = async (): Promise<SearchQueryInfo> => {
   const response = await fetch(pokemonSearchQueryURL);
