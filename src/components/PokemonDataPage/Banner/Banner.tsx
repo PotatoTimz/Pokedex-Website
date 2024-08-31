@@ -51,17 +51,13 @@ function Banner() {
               primaryTyping={pokemonType[0]}
             ></BannerItem>
           </Link>
-        ) : (
-          <div></div>
-        )}
+        ) : null}
         {currentPokemon !== undefined ? (
           <BannerItem
             bannerItem={currentPokemon}
             primaryTyping={pokemonType[0]}
           ></BannerItem>
-        ) : (
-          <div></div>
-        )}
+        ) : null}
         {nextPokemon !== undefined ? (
           <Link
             reloadDocument

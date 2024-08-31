@@ -95,17 +95,34 @@
     }
 }
 
-// Pokemon portrait
-#pokemonPortrait{
-    .infoBubble{
-        height: 22rem;
-        
-    }
+#spriteSection{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+    #spriteButtonHud{
+        color: black;
+        width: fit-content;
+        button{
+            padding: 5px;
+            border-radius: 0;
+        }
+    }    
+
+    // Pokemon portrait
+    #pokemonPortrait{
+    box-sizing: border-box;
+    padding: 10px;
+    border: 10px solid;
+    background-color: white;
+    margin: 0px !important;
     img{
         width: 100%;
         height: 100%;
     }
 }
+}
+
 
 // Pokemon typings
 #pokemonTypings{

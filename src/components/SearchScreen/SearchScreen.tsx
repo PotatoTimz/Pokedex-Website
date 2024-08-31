@@ -103,8 +103,10 @@ function SearchScreen() {
       <div id={SearchScreenMain["queryResults"]}>
         {searchQuery.results.map((pokemon, index) => {
           const pokemonId = pokemon.url.substring(34, pokemon.url.length - 1);
+
           return (
             <Link
+              reloadDocument
               key={`${pokemon}-${index}`}
               to={`/pokemon/${pokemonId}`}
               style={{ textDecoration: "none" }}

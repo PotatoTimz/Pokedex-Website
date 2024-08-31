@@ -124,6 +124,7 @@ $smallTextSize: 20px;
         color: white;
         font-weight: bold;
         overflow: hidden;
+        margin: 10px;
     
         &:hover .pokeballImg{
             animation: spin 1s infinite linear;

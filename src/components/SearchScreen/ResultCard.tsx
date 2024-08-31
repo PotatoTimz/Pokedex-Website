@@ -129,9 +129,7 @@ function ResultCard(props: Props) {
         </div>
       </div>
     </div>
-  ) : (
-    <></>
-  );
+  ) : null;
 }
 
 export default ResultCard;

@@ -4,7 +4,7 @@ import {
 } from "../../Interface/PokemonDataPageInterface";
 import GeneralInfoCss from "../../../assets/scss/PokemonDataScreen/PokemonDataGeneralInfo.module.scss";
 import { convertFirstCharacterUpper } from "../../Utilities/UtilityFunctions";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PokemonDataContext } from "../PokemonDataPage";
 
 function GeneralInfoCard() {
@@ -16,10 +16,13 @@ function GeneralInfoCard() {
     abilityData,
     pokemonMiscData,
   } = useContext(PokemonDataContext);
+  const [toggleShiny, setToggleShiny] = useState<boolean>(false);
 
   const primaryType: string = pokemonType[0];
   const name: string = pokemonName;
-  const sprites: SpriteData = spriteData;
+  const sprite: string = toggleShiny
+    ? spriteData["official-artwork-shiny"]
+    : spriteData["official-artwork"];
   const id: string = pokemonID;
   const abilities: Array<AbilityInfo> = abilityData;
   const eggGroups: Array<string> = pokemonMiscData["egg-groups"];
@@ -48,11 +51,30 @@ function GeneralInfoCard() {
       </div>
 
       {/* image */}
-      <div
-        id={`${GeneralInfoCss["pokemonPortrait"]}`}
-        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
-      >
-        <img src={sprites["official-artwork"]}></img>
+      <div id={GeneralInfoCss["spriteSection"]}>
+        <div
+          id={GeneralInfoCss["spriteButtonHud"]}
+          className={`bg-${primaryType}-light`}
+        >
+          <button
+            className={`bg-${primaryType}-light`}
+            onClick={() => setToggleShiny(false)}
+          >
+            Regular
+          </button>
+          <button
+            className={`bg-${primaryType}-light`}
+            onClick={() => setToggleShiny(true)}
+          >
+            Shiny
+          </button>
+        </div>
+        <div
+          id={`${GeneralInfoCss["pokemonPortrait"]}`}
+          className={`border-${primaryType}-light`}
+        >
+          <img src={sprite} alt={pokemonName}></img>
+        </div>
       </div>
 
       {/* Types */}

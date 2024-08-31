@@ -6,12 +6,15 @@ import { generationInfo } from "../Interface/GenerationInterface";
 import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";
 
 const pokemonSearchQueryURL =
-  "https://pokeapi.co/api/v2/pokemon?limit=300&offset=0";
+  "https://pokeapi.co/api/v2/pokemon?limit=700&offset=0";
 const pokemonInfoURL = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonPokedexURL = "https://pokeapi.co/api/v2/pokemon-species/";
 
+const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 const fetchSearchResults = async (): Promise<SearchQueryInfo> => {
   const response = await fetch(pokemonSearchQueryURL);
+  // await delay(1000);
   const responseJson = await response.json();
 
   return responseJson;
