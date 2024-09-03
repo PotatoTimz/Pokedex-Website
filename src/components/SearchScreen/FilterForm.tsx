@@ -82,18 +82,18 @@ function FilterForm(props: Props) {
 
   return (
     <>
-      <form onSubmit={submitForm} id={FilterFormClasses["filterForm"]}>
+      <form onSubmit={submitForm} id={FilterFormClasses["filter-form"]}>
         <div id={FilterFormClasses["header"]}>
           <button
-            id={FilterFormClasses["closeFormButton"]}
+            id={FilterFormClasses["close-form-button"]}
             onClick={props.toggleFilterForm}
           >
             x
           </button>
         </div>
-        <div id={FilterFormClasses["keywordFilter"]}>
+        <div id={FilterFormClasses["keyword-filter"]}>
           <input
-            id={FilterFormClasses["pokemonSearchBar"]}
+            id={FilterFormClasses["pokemon-search-sar"]}
             type="text"
             onChange={setKeyword}
             name="keyword"
@@ -101,7 +101,7 @@ function FilterForm(props: Props) {
             value={wordFilter}
           ></input>
         </div>
-        <div id={FilterFormClasses["typeFilter"]}>
+        <div id={FilterFormClasses["type-filter"]}>
           {typeList.map((type: string) => {
             return (
               <label key={type}>
@@ -114,7 +114,7 @@ function FilterForm(props: Props) {
                   checked={typeFilter[type as keyof TypeFilter] === "true"}
                 ></input>
                 <span
-                  className={`${FilterFormClasses["pokemonTypeFilter"]} bg-${type}-light  `}
+                  className={`${FilterFormClasses["pokemon-type-filter"]} bg-${type}-light  `}
                 >
                   {convertFirstCharacterUpper(type)}{" "}
                 </span>
@@ -122,7 +122,7 @@ function FilterForm(props: Props) {
             );
           })}
         </div>
-        <div id={FilterFormClasses["generationFilter"]}>
+        <div id={FilterFormClasses["generation-filter"]}>
           {generationList.map((gen: string) => {
             const genInfo = generationInfo(gen);
             return (
@@ -138,16 +138,16 @@ function FilterForm(props: Props) {
                   }
                 ></input>
                 <span
-                  className={`${FilterFormClasses["generationTypeFilter"]}`}
+                  className={`${FilterFormClasses["generation-type-filter"]}`}
                 >
                   <img
-                    id={`${FilterFormClasses["mascotImage"]}`}
+                    id={`${FilterFormClasses["mascot-image"]}`}
                     src={genInfo["mascot-sprites"]["mascot-1"]}
                     alt="mascot-1"
                   ></img>
                   {genInfo.region}
                   <img
-                    id={`${FilterFormClasses["mascotImage"]}`}
+                    id={`${FilterFormClasses["mascot-image"]}`}
                     src={genInfo["mascot-sprites"]["mascot-2"]}
                     alt="mascot-2"
                   ></img>

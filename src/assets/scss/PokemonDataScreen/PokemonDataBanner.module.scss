@@ -17,7 +17,7 @@
     overflow: hidden;
 }
 
-.bannerLink{
+.banner-link{
     width: 100px;
     height: 100%;
     img{
@@ -36,13 +36,13 @@
 
 //mobile
 @media screen and (min-width: 321px) and (max-width: 767px) {
-    .bannerLink{
+    .banner-link{
         width: 100px;
     }
 }
 
 @media screen and (max-width: 320px){
-    .bannerLink{
+    .banner-link{
         width: 75px;
     }
 }

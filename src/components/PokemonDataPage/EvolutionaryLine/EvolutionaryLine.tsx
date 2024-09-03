@@ -19,7 +19,7 @@ function EvolutionaryLine() {
 
   return (
     <div
-      id={EvolutionsCss["evolutionLine"]}
+      id={EvolutionsCss["evolution-line"]}
       className={`${EvolutionsCss["column"]}`}
     >
       {evolutionaryLine.map((level: Array<string>, index: number) => {
@@ -28,7 +28,7 @@ function EvolutionaryLine() {
             key={level.length + index.toString()}
             className={`${EvolutionsCss["level"]} border-${pokemonType[0]}-dark`}
           >
-            <div className={EvolutionsCss["levelTitle"]}>
+            <div className={EvolutionsCss["level-title"]}>
               {" "}
               {index === 0
                 ? "Unevolved"

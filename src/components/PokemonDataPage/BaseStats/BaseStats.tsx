@@ -14,7 +14,7 @@ function BaseStats() {
 
   return (
     <div
-      id={BaseStatsCss["baseStats"]}
+      id={BaseStatsCss["base-stats"]}
       className={`bg-${pokemonType[0]}-light border-${pokemonType[0]}-dark ${BaseStatsCss["column"]}`}
     >
       <Stat statValue={hp} statName={"HP"}></Stat>

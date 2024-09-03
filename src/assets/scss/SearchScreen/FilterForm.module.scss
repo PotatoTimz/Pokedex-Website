@@ -1,7 +1,7 @@
 $pokeball-red: #C52941;
 
 @media screen and (min-width: 768px) and (max-width: 4000px) {   
-    #filterForm{
+    #filter-form{
         width: 50%;
         display: flex;
         flex-direction: column;
@@ -20,22 +20,22 @@ $pokeball-red: #C52941;
         #header{
             display: flex;
             justify-content: flex-end;
-            #closeFormButton{
+            #close-form-button{
                 border-radius: 50%;
                 background-color: $pokeball-red;
                 border: none;
                 color: white
             }
         }
-        #keywordFilter{
+        #keyword-filter{
             padding: 20px;
-            #pokemonSearchBar{
+            #pokemon-search-bar{
                 width: 50%;
             }
         }
-        #typeFilter{
+        #type-filter{
             line-height: 35px;
-            .pokemonTypeFilter{
+            .pokemon-type-filter{
                 border-radius: 5px;
                 padding-left: 25px;
                 padding-right:25px;
@@ -49,13 +49,13 @@ $pokeball-red: #C52941;
     
                 filter:opacity(50%);
             }
-            .checkbox:checked + .pokemonTypeFilter{
+            .checkbox:checked + .pokemon-type-filter{
                 filter:opacity(100%);
             }    
         }
-        #generationFilter{
+        #generation-filter{
             line-height: 35px;
-            .generationTypeFilter{
+            .generation-type-filter{
                 border-radius: 5px;
                 padding-left: 25px;
                 padding-right: 25px;
@@ -68,12 +68,12 @@ $pokeball-red: #C52941;
     
                 filter:opacity(50%);
                 
-                & > #mascotImage{
+                & > #mascot-image{
                     height: 20px;
                     width: 20px;
                 }
             }
-            .checkbox:checked + .generationTypeFilter{
+            .checkbox:checked + .generation-type-filter{
                 filter:opacity(100%);
             }
         }
@@ -101,7 +101,7 @@ $pokeball-red: #C52941;
 
 //mobile
 @media screen and (min-width: 319px) and (max-width: 767px) {
-    #filterForm{
+    #filter-form{
         width: 50%;
         display: flex;
         flex-direction: column;
@@ -120,7 +120,7 @@ $pokeball-red: #C52941;
         #header{
             display: flex;
             justify-content: flex-end;
-            #closeFormButton{
+            #close-form-button{
                 padding: 5px;
                 border-radius: 50%;
                 background-color: $pokeball-red;
@@ -128,15 +128,15 @@ $pokeball-red: #C52941;
                 color: white
             }
         }
-        #keywordFilter{
+        #keyword-filter{
             padding: 20px;
-            #pokemonSearchBar{
+            #pokemon-search-bar{
                 width: 100%;
             }
         }
-        #typeFilter{
+        #type-filter{
             line-height: 35px;
-            .pokemonTypeFilter{
+            .pokemon-type-filter{
                 border-radius: 5px;
                 padding-left: 5px;
                 padding-right: 5px;
@@ -150,12 +150,12 @@ $pokeball-red: #C52941;
     
                 filter:opacity(50%);
             }
-            .checkbox:checked + .pokemonTypeFilter{
+            .checkbox:checked + .pokemon-type-filter{
                 filter:opacity(100%);
             }    
         }
-        #generationFilter{
-            .generationTypeFilter{
+        #generation-filter{
+            .generation-type-filter{
                 border-radius: 5px;
                 padding-left: 5px;
                 padding-right: 5px;
@@ -166,11 +166,11 @@ $pokeball-red: #C52941;
     
                 filter:opacity(50%);
                 
-                & > #mascotImage{
+                & > #mascot-image{
                     display: none;
                 }
             }
-            .checkbox:checked + .generationTypeFilter{
+            .checkbox:checked + .generation-type-filter{
                 filter:opacity(100%);
             }
         }

@@ -10,7 +10,7 @@ $pokeball-red: #C52941;
         align-items:center;
         padding-top: 80px;
 
-        #searchBody{
+        #search-body{
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -19,7 +19,7 @@ $pokeball-red: #C52941;
             & > *{
                 border: 1px solid black;
             }
-            #pokemonSearchBar{
+            #pokemon-search-bar{
                 width: 50%;
             }
             button{
@@ -31,7 +31,7 @@ $pokeball-red: #C52941;
             
         }
 
-        #queryResults{
+        #query-results{
             flex-direction: row;
             display: flex;
             justify-content: center;
@@ -53,7 +53,7 @@ $pokeball-red: #C52941;
         align-items:center;
         padding-top: 80px;
 
-        #searchBody{
+        #search-body{
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -62,7 +62,7 @@ $pokeball-red: #C52941;
             & > *{
                 border: 1px solid black;
             }
-            #pokemonSearchBar{
+            #pokemon-search-bar{
                 width: 100%;
             }
             button{
@@ -74,7 +74,7 @@ $pokeball-red: #C52941;
             
         }
 
-        #queryResults{
+        #query-results{
             flex-direction: row;
             display: flex;
             justify-content: center;

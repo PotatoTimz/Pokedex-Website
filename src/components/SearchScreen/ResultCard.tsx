@@ -76,17 +76,17 @@ function ResultCard(props: Props) {
 
   return passFilter ? (
     <div
-      className={`${ResultCardClasses["pokemonCard"]} bg-${pokemonData.pokemonType[0]}-dark`}
+      className={`${ResultCardClasses["pokemon-card"]} bg-${pokemonData.pokemonType[0]}-dark`}
     >
       <div className={ResultCardClasses["header"]}>
         <div className={ResultCardClasses["row-1"]}>
           <div
-            className={`${ResultCardClasses["pokemonName"]} bg-${pokemonData.pokemonType[0]}-light`}
+            className={`${ResultCardClasses["pokemon-name"]} bg-${pokemonData.pokemonType[0]}-light`}
           >
             {pokemonData.pokemonName}
           </div>
           <div
-            className={`${ResultCardClasses["pokemonId"]} bg-${pokemonData.pokemonType[0]}-light`}
+            className={`${ResultCardClasses["pokemon-id"]} bg-${pokemonData.pokemonType[0]}-light`}
           >
             #{pokemonData.pokemonId}
           </div>
@@ -96,7 +96,7 @@ function ResultCard(props: Props) {
             return (
               <div
                 key={`${typing}`}
-                className={`${ResultCardClasses["pokemonType"]} bg-${typing}-light`}
+                className={`${ResultCardClasses["pokemon-type"]} bg-${typing}-light`}
               >
                 {convertFirstCharacterUpper(typing)}
               </div>
@@ -106,7 +106,7 @@ function ResultCard(props: Props) {
       </div>
       <div className={ResultCardClasses["body"]}>
         <img
-          className={`${ResultCardClasses["pokeballImg"]} bg-${
+          className={`${ResultCardClasses["pokeball-img"]} bg-${
             pokemonData.pokemonType.length >= 1
               ? pokemonData.pokemonType[1]
               : pokemonData.pokemonType[0]
@@ -117,12 +117,12 @@ function ResultCard(props: Props) {
         <img
           src={pokemonData.pokemonSprite}
           alt={pokemonData.pokemonName}
-          className={ResultCardClasses["pokemonImg"]}
+          className={ResultCardClasses["pokemon-img"]}
         ></img>
       </div>
       <div className={ResultCardClasses["footer"]}>
         <div
-          className={`${ResultCardClasses["generationInfo"]} bg-${pokemonData.pokemonType[0]}-light`}
+          className={`${ResultCardClasses["generation-info"]} bg-${pokemonData.pokemonType[0]}-light`}
         >
           <div>{pokemonData.pokemonRegionName}</div>
           <div>Generation: {pokemonData.pokemonRegionNumber}</div>

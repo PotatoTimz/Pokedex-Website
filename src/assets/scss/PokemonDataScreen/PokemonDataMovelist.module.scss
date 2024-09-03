@@ -8,7 +8,7 @@ $special-attack: #375ab2;
     flex-wrap: wrap;
     gap: 15px;
 
-    &#moveTable{
+    &#move-table{
         overflow: scroll;
     }
 }
@@ -21,7 +21,7 @@ $special-attack: #375ab2;
     height: fit-content;
 }
 
-@mixin damageClass($color){
+@mixin damage-class($color){
     background-color: $color;
     color: white;
     text-shadow: -0.75px -0.75px 0 black,
@@ -30,26 +30,16 @@ $special-attack: #375ab2;
     0.75px 0.75px 0 black;
 }
 
-button{
-    width:fit-content;
-    padding: 5px 15px 5px 15px;
-    border-radius: 10px;
-    border: 0px;
-    color: white;
-}
 
 
-#moveTable{
+// Move table
+#move-table{
     border: 3px solid;
     padding: 20px;
     border-radius: 10px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-
-    &::-webkit-scrollbar{
-        display: none;
-    }
 
     thead{
         border: 10px solid;
@@ -77,32 +67,50 @@ button{
                 color: white !important;
             }
             .physical-bg{
-                @include damageClass($physical-attack);
+                @include damage-class($physical-attack);
             }
             .special-bg{
-                @include damageClass($special-attack);
+                @include damage-class($special-attack);
             }            
             .status-bg{
-                @include damageClass($status-attack);
+                @include damage-class($status-attack);
             }
         }
     }
 
 }
 
-#moveButtons{
+
+// Move list toggle
+#move-buttons{
     margin-left: auto;
     margin-right: auto;
 
     &::-webkit-scrollbar{
         display: none;
     }
+
+    button{
+        width:fit-content;
+        padding: 5px 15px 5px 15px;
+        border-radius: 10px;
+        border: 0px;
+        color: white;
+    }
 }
 
 //mobile
 @media screen and (min-width: 321px) and (max-width: 767px) {
-    #moveTable{
+    #move-table{
         //padding-left: 0 !important;
         width: 90% !important;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    #move-table{
+        &::-webkit-scrollbar{
+            display: none;
+        }
     }
 }

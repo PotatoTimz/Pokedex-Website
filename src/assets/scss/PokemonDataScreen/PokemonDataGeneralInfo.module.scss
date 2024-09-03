@@ -14,14 +14,14 @@
 }
 
 
-#generalInfo{
+#general-info{
     width: 30%;
     border-radius: 10px;
     text-align: center;
     height: fit-content;
     padding-bottom: 20px;
 
-    .infoCardLarge{
+    .large-container{
         border-radius: 5px;
         box-sizing: border-box;
         width: 80%;
@@ -52,31 +52,31 @@
 
     }
 
-    .generalGrid{
+    .large-container:first-of-type{
+        margin-top: 2em;
+    }
+
+    .general-grid{
         display: grid;
         width: 80%;
         margin: 10px;
 
-        //background-color: red;
         grid-template-columns: 1fr 1fr;
         column-gap: 20px;
         row-gap: 20px;
-    }
-    .infoCardSmall{
-        border-radius: 5px;
-        border: 5px solid;
-        background-color: white;
-        h3{
-            margin: 0 0 5px 0;
-            font-size: 15px;
+
+        .small-container{
+            border-radius: 5px;
+            border: 5px solid;
+            background-color: white;
+            h3{
+                margin: 0 0 5px 0;
+                font-size: 15px;
+            }
+            p{
+                margin: 0;
+            }
         }
-        p{
-            margin: 0;
-        }
-    }
-    
-    .infoCardLarge:first-of-type{
-        margin-top: 2em;
     }
 
     & > .row:last-of-type{
@@ -85,8 +85,8 @@
 }
 
 // Pokemon name and Id
-#generalInfo{
-    #nameTag{
+#general-info{
+    #name-tag{
         font-size: 40px;
         &.row{
             justify-content: space-between;
@@ -95,12 +95,14 @@
     }
 }
 
-#spriteSection{
+// Pokemon portrait and shiny toggle
+#sprite-section{
     display: flex;
     flex-direction: column;
     width: 80%;
 
-    #spriteButtonHud{
+    // shiny toggle
+    #sprite-button-hud{
         color: black;
         width: fit-content;
         button{
@@ -110,7 +112,7 @@
     }    
 
     // Pokemon portrait
-    #pokemonPortrait{
+    #pokemon-portrait{
     box-sizing: border-box;
     padding: 10px;
     border: 10px solid;
@@ -124,10 +126,10 @@
 }
 
 
-// Pokemon typings
-#pokemonTypings{
+// Pookemon typing, abilities and egg family
+#pokemon-typings, #pokemon-abilities, #pokemon-egg-family{
     
-    .pokemonType{
+    .pokemon-type{
         border-radius: 5%;
         padding-left: 25px;
         padding-right: 25px;
@@ -146,7 +148,7 @@
 
 //mobile
 @media screen and (min-width: 319px) and (max-width: 1023px) {
-    #generalInfo{
+    #general-info{
         width: 90% !important;
     }
 }

@@ -30,16 +30,16 @@ function GeneralInfoCard() {
 
   return (
     <div
-      id={`${GeneralInfoCss["generalInfo"]}`}
+      id={`${GeneralInfoCss["general-info"]}`}
       className={`${GeneralInfoCss["column"]} bg-${primaryType}-dark`}
     >
       {/* Name and ID */}
       <div
-        id={GeneralInfoCss["nameAndInfo"]}
-        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
+        id={GeneralInfoCss["name-and-info"]}
+        className={`border-${primaryType}-light ${GeneralInfoCss["large-container"]}`}
       >
         <div
-          id={GeneralInfoCss["nameTag"]}
+          id={GeneralInfoCss["name-tag"]}
           className={`${GeneralInfoCss["row"]}`}
         >
           <h1>{name}</h1>
@@ -48,9 +48,9 @@ function GeneralInfoCard() {
       </div>
 
       {/* image */}
-      <div id={GeneralInfoCss["spriteSection"]}>
+      <div id={GeneralInfoCss["sprite-section"]}>
         <div
-          id={GeneralInfoCss["spriteButtonHud"]}
+          id={GeneralInfoCss["sprite-button-hud"]}
           className={`bg-${primaryType}-light`}
         >
           <button
@@ -67,7 +67,7 @@ function GeneralInfoCard() {
           </button>
         </div>
         <div
-          id={`${GeneralInfoCss["pokemonPortrait"]}`}
+          id={`${GeneralInfoCss["pokemon-portrait"]}`}
           className={`border-${primaryType}-light`}
         >
           <img src={sprite} alt={pokemonName}></img>
@@ -76,8 +76,8 @@ function GeneralInfoCard() {
 
       {/* Types */}
       <div
-        id={`${GeneralInfoCss["pokemonTypings"]}`}
-        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
+        id={`${GeneralInfoCss["pokemon-typings"]}`}
+        className={`border-${primaryType}-light ${GeneralInfoCss["large-container"]}`}
       >
         <h3>Types</h3>
         <div className={GeneralInfoCss["row"]}>
@@ -86,7 +86,7 @@ function GeneralInfoCard() {
               <div
                 key={`${typing}`}
                 className={`${`bg-${typing}-light`} ${
-                  GeneralInfoCss["pokemonType"]
+                  GeneralInfoCss["pokemon-type"]
                 }`}
               >
                 {convertFirstCharacterUpper(typing)}
@@ -98,8 +98,8 @@ function GeneralInfoCard() {
 
       {/* Abilities */}
       <div
-        id={`${GeneralInfoCss["pokemonTypings"]}`}
-        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
+        id={`${GeneralInfoCss["pokemon-abilities"]}`}
+        className={`border-${primaryType}-light ${GeneralInfoCss["large-container"]}`}
       >
         <h3>Abilities</h3>
         <div className={GeneralInfoCss["row"]}>
@@ -116,8 +116,8 @@ function GeneralInfoCard() {
 
       {/* Egg Info */}
       <div
-        id={`${GeneralInfoCss["pokemonTypings"]}`}
-        className={`border-${primaryType}-light ${GeneralInfoCss["infoCardLarge"]}`}
+        id={`${GeneralInfoCss["pokemon-egg-family"]}`}
+        className={`border-${primaryType}-light ${GeneralInfoCss["large-container"]}`}
       >
         <h3>Egg Famalies</h3>
         <div className={GeneralInfoCss["row"]}>
@@ -132,27 +132,27 @@ function GeneralInfoCard() {
       </div>
 
       {/* Misc Data */}
-      <div className={`${GeneralInfoCss["generalGrid"]}`}>
+      <div className={`${GeneralInfoCss["general-grid"]}`}>
         <div
-          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["small-container"]}`}
         >
           <h3>Base Happiness:</h3>
           <p>{baseHappiness}</p>
         </div>
         <div
-          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["small-container"]}`}
         >
           <h3>Growth Rate:</h3>
           <p>{growthRate}</p>
         </div>
         <div
-          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["small-container"]}`}
         >
           <h3>Height:</h3>
           <p>{height}</p>
         </div>
         <div
-          className={`border-${primaryType}-light ${GeneralInfoCss["infoCardSmall"]}`}
+          className={`border-${primaryType}-light ${GeneralInfoCss["small-container"]}`}
         >
           <h3>Weight:</h3>
           <p>{weight}</p>
@@ -163,4 +163,3 @@ function GeneralInfoCard() {
 }
 
 export default GeneralInfoCard;
-("");

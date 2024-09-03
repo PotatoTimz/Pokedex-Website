@@ -17,7 +17,7 @@ function Stat(props: Props) {
       }`}
     >
       <div
-        className={`${BaseStatsCss["statName"]} ${
+        className={`${BaseStatsCss["stat-name"]} ${
           BaseStatsCss[`${props.statName}-background-light`]
         }`}
       >
@@ -25,7 +25,7 @@ function Stat(props: Props) {
       </div>
       <div
         className={`${BaseStatsCss[`${props.statName}-background-light`]} ${
-          BaseStatsCss["statBar"]
+          BaseStatsCss["stat-bar"]
         }`}
         style={style}
       >

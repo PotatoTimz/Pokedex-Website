@@ -84,9 +84,9 @@ function SearchScreen() {
         ></FilterForm>
       ) : (
         <>
-          <div id={SearchScreenMain["searchBody"]}>
+          <div id={SearchScreenMain["search-body"]}>
             <input
-              id={SearchScreenMain["pokemonSearchBar"]}
+              id={SearchScreenMain["pokemon-search-bar"]}
               type="text"
               placeholder="Enter Pokemon Name"
               value={wordFilter}
@@ -100,7 +100,7 @@ function SearchScreen() {
         </>
       )}
 
-      <div id={SearchScreenMain["queryResults"]}>
+      <div id={SearchScreenMain["query-results"]}>
         {searchQuery.results.map((pokemon, index) => {
           const pokemonId = pokemon.url.substring(34, pokemon.url.length - 1);
 

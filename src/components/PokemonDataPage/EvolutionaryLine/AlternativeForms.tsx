@@ -7,13 +7,13 @@ function AlternativeForms() {
 
   return (
     <div
-      id={EvolutionsCss["evolutionLine"]}
+      id={EvolutionsCss["evolution-line"]}
       className={`${EvolutionsCss["column"]}`}
     >
       <div
         className={`${EvolutionsCss["level"]} border-${pokemonType[0]}-dark`}
       >
-        <div className={EvolutionsCss["levelTitle"]}>Other Forms</div>
+        <div className={EvolutionsCss["level-title"]}>Other Forms</div>
         <div className={`${EvolutionsCss["row"]}`}>
           {pokemonVariants.map((id: string) => {
             return <FeaturePokemon key={id} id={id} />;

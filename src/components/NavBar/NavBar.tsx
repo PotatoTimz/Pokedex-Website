@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div id="NavBar">
+    <div id="navbar">
       <Link to={"/"} style={{ textDecoration: "none" }}>
-        <p id="Title">Pokedex</p>
+        <p id="title">Pokedex</p>
       </Link>
     </div>
   );

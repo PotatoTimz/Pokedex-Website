@@ -30,14 +30,14 @@ function featurePokemon(props: Props) {
       style={{ textDecoration: "none" }}
     >
       <div
-        className={`${EvolutionsCss["feature"]} ${EvolutionsCss["featureColumn"]}`}
+        className={`${EvolutionsCss["feature"]} ${EvolutionsCss["feature-column"]}`}
       >
         <img
           src={featurePokemonData.sprite}
           alt={featurePokemonData.name}
         ></img>
         <div>{convertFirstCharacterUpper(featurePokemonData.name)}</div>
-        <div className={`${EvolutionsCss["typeRow"]}`}>
+        <div className={`${EvolutionsCss["type-row"]}`}>
           {featurePokemonData.types.map((type: string) => {
             return (
               <div

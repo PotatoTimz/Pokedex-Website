@@ -10,7 +10,7 @@ interface Props {
 function BannerItem(props: Props) {
   return (
     <div
-      className={`${BannerCss["column"]} ${BannerCss["bannerLink"]} bg-${props.primaryTyping}-light`}
+      className={`${BannerCss["column"]} ${BannerCss["banner-link"]} bg-${props.primaryTyping}-light`}
     >
       <img
         src={props.bannerItem.pokemonIcon}

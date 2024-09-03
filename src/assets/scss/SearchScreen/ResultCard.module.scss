@@ -2,7 +2,7 @@ $bigTextSize: 30px;
 $smallTextSize: 20px;
 
 @media screen and (min-width: 768px) and (max-width: 4000px) {    
-    .pokemonCard{
+    .pokemon-card{
         height: 405px;
         width: 400px;
         border-radius: 10%;
@@ -11,7 +11,7 @@ $smallTextSize: 20px;
         margin: 30px;
         overflow: hidden;
     
-        &:hover .pokeballImg{
+        &:hover .pokeball-img{
             animation: spin 1s infinite linear;
             animation-delay: 0.25s
         }
@@ -34,7 +34,7 @@ $smallTextSize: 20px;
                 align-items: flex-end;
                 margin-bottom: 10px;
     
-                .pokemonId{
+                .pokemon-id{
                     border-radius: 5px;
                     
                     padding-left: 10px;
@@ -46,7 +46,7 @@ $smallTextSize: 20px;
                     font-size: $bigTextSize;
                 }
         
-                .pokemonName{
+                .pokemon-name{
                     border-radius: 5px;
                     padding-left: 25px;
                     padding-right:25px;
@@ -61,7 +61,7 @@ $smallTextSize: 20px;
             .row-2{
                 display: flex;
                 flex-direction: row;
-                .pokemonType{
+                .pokemon-type{
                     border-radius: 5px;
                     padding-left: 25px;
                     padding-right:25px;
@@ -83,7 +83,7 @@ $smallTextSize: 20px;
     
             position: relative;
             
-            .pokeballImg{
+            .pokeball-img{
                 height: 110%;
                 padding: 10px;
                 border-radius: 50%;
@@ -94,7 +94,7 @@ $smallTextSize: 20px;
                 transform: translate(-50%, -50%);
             }
     
-            .pokemonImg{
+            .pokemon-img{
                 height: 95%;
     
                 position: absolute;
@@ -105,7 +105,7 @@ $smallTextSize: 20px;
         }
     
         .footer{
-            .generationInfo{
+            .generation-info{
                 font-size: $smallTextSize;
                 text-align: center;
                 height: 50px;
@@ -117,7 +117,7 @@ $smallTextSize: 20px;
 
 //mobile
 @media screen and (min-width: 319px) and (max-width: 767px) {
-    .pokemonCard{
+    .pokemon-card{
         height: 380px;
         width: 300px;
         border-radius: 15px;
@@ -126,7 +126,7 @@ $smallTextSize: 20px;
         overflow: hidden;
         margin: 10px;
     
-        &:hover .pokeballImg{
+        &:hover .pokeball-img{
             animation: spin 1s infinite linear;
             animation-delay: 0.25s
         }
@@ -149,7 +149,7 @@ $smallTextSize: 20px;
                 margin-bottom: 10px;
                 font-size: 25px;
 
-                .pokemonId{
+                .pokemon-id{
                     border-radius: 5px;
                     padding-left: 10px;
                     padding-right: 10px;
@@ -159,7 +159,7 @@ $smallTextSize: 20px;
                     line-height: 50px;
                 }
         
-                .pokemonName{
+                .pokemon-name{
                     border-radius: 5px;
                     padding-left: 10px;
                     padding-right: 10px;
@@ -173,7 +173,7 @@ $smallTextSize: 20px;
             .row-2{
                 display: flex;
                 flex-direction: row;
-                .pokemonType{
+                .pokemon-type{
                     border-radius: 5px;
                     padding-left: 15px;
                     padding-right: 15px;
@@ -195,7 +195,7 @@ $smallTextSize: 20px;
     
             position: relative;
             
-            .pokeballImg{
+            .pokeball-img{
                 height: 110%;
                 padding: 10px;
                 border-radius: 50%;
@@ -206,7 +206,7 @@ $smallTextSize: 20px;
                 transform: translate(-50%, -50%);
             }
     
-            .pokemonImg{
+            .pokemon-img{
                 height: 95%;
     
                 position: absolute;
@@ -217,7 +217,7 @@ $smallTextSize: 20px;
         }
     
         .footer{
-            .generationInfo{
+            .generation-info{
                 padding-top: 5px;
                 font-size: 15px;
                 text-align: center;

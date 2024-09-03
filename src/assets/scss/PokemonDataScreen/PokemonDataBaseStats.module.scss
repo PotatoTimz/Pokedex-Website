@@ -53,7 +53,7 @@ $stat-colors-dark: (
 
 }
 
-#baseStats{
+#base-stats{
     border-radius: 10px;
     padding: 10px;
     width: 60%;
@@ -61,7 +61,7 @@ $stat-colors-dark: (
     background-color: white;
     border: 2px solid;
 
-    .statName{
+    .stat-name{
         color: white;
         font-size: 25px;
         font-weight: bold;
@@ -71,7 +71,7 @@ $stat-colors-dark: (
         height: 2em;
         line-height: 2em;
     }
-    .statBar{
+    .stat-bar{
         font-size: 16px;
         color: white;
         font-weight: bold;
@@ -85,7 +85,7 @@ $stat-colors-dark: (
 
 //mobile
 @media screen and (min-width: 321px) and (max-width: 767px) {
-    #baseStats{
+    #base-stats{
         //padding-left: 0 !important;
         width: 90% !important;
     }

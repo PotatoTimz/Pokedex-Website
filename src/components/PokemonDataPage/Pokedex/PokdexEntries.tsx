@@ -61,7 +61,7 @@ function PokedexEntries() {
   return (
     <>
       <div
-        id={PokedexEntriesCss["pokedexSection"]}
+        id={PokedexEntriesCss["pokedex-section"]}
         className={`${PokedexEntriesCss["column"]} bg-${pokemonType[0]}-dark border-${pokemonType[0]}-dark`}
       >
         {1 >= pokemonRegionNumber ? (

@@ -19,7 +19,7 @@ function MoveList() {
 
   return (
     <div className={`${MoveListCss["column"]}`}>
-      <div id={MoveListCss["moveButtons"]} className={`${MoveListCss["row"]}`}>
+      <div id={MoveListCss["move-buttons"]} className={`${MoveListCss["row"]}`}>
         <button
           className={`bg-${pokemonType[0]}-light`}
           onClick={() => setMoveToggle("level")}
@@ -47,7 +47,7 @@ function MoveList() {
       </div>
 
       <div
-        id={MoveListCss["moveTable"]}
+        id={MoveListCss["move-table"]}
         className={`${MoveListCss["row"]} border-${pokemonType[0]}-dark`}
       >
         <table>
@@ -58,7 +58,7 @@ function MoveList() {
               ) : null}
               <th className={`border-${pokemonType[0]}-dark`}>Move</th>
               <th className={`border-${pokemonType[0]}-dark`}>Type</th>
-              <th className={`border-${pokemonType[0]}-dark`}>Cat.</th>
+              <th className={`border-${pokemonType[0]}-dark`}>Category</th>
               <th className={`border-${pokemonType[0]}-dark`}>Power</th>
               <th className={`border-${pokemonType[0]}-dark`}>Accuracy</th>
               <th className={`border-${pokemonType[0]}-dark`}>PP</th>

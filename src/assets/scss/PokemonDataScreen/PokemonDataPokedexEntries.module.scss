@@ -69,6 +69,7 @@ $games: (
     color: white;
     padding: 5px 20px 5px 20px;
     height: 20px;
+    line-height: 20px;
     text-align: center;
     width: 150px;
     font-size: 20px;
@@ -88,7 +89,7 @@ $games: (
     }
 }
 
-#pokedexSection{
+#pokedex-section{
     height: fit-content;
     border-radius: 10px;
     padding: 1rem;
@@ -96,16 +97,15 @@ $games: (
     border: 5px solid;
     background-color: white;
 
-    .generationLabel{
+    .generation-label{
         font-size: 20px;
         color: white !important;
-        padding-left: 1em;
-        padding-right: 1em;
+        padding-inline: 1em;
         display: inline-block;
         width: fit-content;
     }
 
-   .generationPokedexData{
+   .generation-pokedex-data{
         background-color: white;
         border: 5px solid;
         & > *{
@@ -118,21 +118,21 @@ $games: (
 .entry{
     font-size: 15px;
     flex: 1;
-    padding-left: 10px;
+    padding: 5px 10px 5px 10px;
     border: 1px solid black;
     border-radius: 10px;
     min-width: 45%;
 }
 
 @media screen and (max-width: 767px) {
-    #pokedexSection{
+    #pokedex-section{
         width: 90% !important;
     }
 }
 
 //laptop
 @media screen and (min-width:768px) and (max-width: 979px){
-    #pokedexSection{
+    #pokedex-section{
         width: 90% !important;
     }
 }

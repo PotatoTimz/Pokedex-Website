@@ -14,14 +14,14 @@ function GenerationPokedex(props: Props) {
 
   return (
     <>
-      <div className={PokedexEntriesCss["generationSection"]}>
+      <div className={PokedexEntriesCss["generation-section"]}>
         <div
-          className={`bg-${pokemonType[0]}-light ${PokedexEntriesCss["generationLabel"]}`}
+          className={`bg-${pokemonType[0]}-light ${PokedexEntriesCss["generation-label"]}`}
         >
           Generation {props.generationNumber}:
         </div>
         <div
-          className={`${PokedexEntriesCss["generationPokedexData"]} border-${pokemonType[0]}-light`}
+          className={`${PokedexEntriesCss["generation-pokedex-data"]} border-${pokemonType[0]}-light`}
         >
           <div className={`${PokedexEntriesCss["column"]}`}>
             {props.gameTitles.map((title, index) => {
