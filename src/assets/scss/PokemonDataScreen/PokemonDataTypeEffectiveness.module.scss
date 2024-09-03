@@ -6,3 +6,51 @@
     display: flex;
     flex-direction: column;
 }
+
+#type-chart{
+    border: 3px solid;
+    border-radius: 5px;
+    width: 70%;
+
+    .effectiveness-level{
+        margin: 10px;
+        border: 3px solid;
+        border-radius: 10px;
+        
+        .effectiveness-label{
+            padding: 5px 10px 5px 10px;
+            min-width: 50px;
+            max-width: 200px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+    
+        .type-list{
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+            margin: 5px;
+            .type{
+                color: white !important;
+                border-radius: 5px;
+                text-align: center;
+                padding-inline: 10px;
+                margin: 10px;
+                height: 20px;
+                width: 55px;
+            }
+        }
+    }
+}
+
+//mobile
+@media screen and (min-width: 319px) and (max-width: 767px) {
+    #type-chart{
+        width: 90% !important;
+    }
+    .type{
+        padding-inline: 5px !important;
+    }
+}

@@ -1,10 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { PokemonDataContext } from "../PokemonDataPage";
 import { PokemonTypeMap } from "../../Interface/PokemonDataPageInterface";
 import TypeEffectivenessCss from "../../../assets/scss/PokemonDataScreen/PokemonDataTypeEffectiveness.module.scss";
+import EffectivenessLevel from "./EffectivenessLevel";
 
 function TypeEffectiveness() {
-  const { pokemonTypeChart } = useContext(PokemonDataContext);
+  const { pokemonTypeChart, pokemonType } = useContext(PokemonDataContext);
 
   const fourTimes: Array<string> = [];
   const twoTimes: Array<string> = [];
@@ -24,42 +25,30 @@ function TypeEffectiveness() {
   }
 
   return (
-    <div className={`${TypeEffectivenessCss["column"]}`}>
-      <div className={`${TypeEffectivenessCss["row"]}`}>
-        <div>Immune:</div>
-        <div className={`${TypeEffectivenessCss["row"]}`}>
-          {immune.map((type) => {
-            return <div key={type}>{type} </div>;
-          })}
-        </div>
-      </div>
-
-      <div className={`${TypeEffectivenessCss["row"]}`}>
-        <div>Regular Resistant:</div>
-        <div className={`${TypeEffectivenessCss["row"]}`}>
-          {regular.map((type) => {
-            return <div key={type}>{type}</div>;
-          })}
-        </div>
-      </div>
-
-      <div className={`${TypeEffectivenessCss["row"]}`}>
-        <div>Two Times Resistant:</div>
-        <div className={`${TypeEffectivenessCss["row"]}`}>
-          {twoTimes.map((type) => {
-            return <div key={type}>{type}</div>;
-          })}
-        </div>
-      </div>
-
-      <div className={`${TypeEffectivenessCss["row"]}`}>
-        <div>Four Times Resistant:</div>
-        <div className={`${TypeEffectivenessCss["row"]}`}>
-          {fourTimes.map((type) => {
-            return <div key={type}>{type}</div>;
-          })}
-        </div>
-      </div>
+    <div
+      id={TypeEffectivenessCss["type-chart"]}
+      className={`${TypeEffectivenessCss["column"]} border-${pokemonType[0]}-dark`}
+    >
+      <EffectivenessLevel
+        effectivenessLevel="Immune (0x)"
+        typeList={immune}
+        primaryType={pokemonType[0]}
+      />
+      <EffectivenessLevel
+        effectivenessLevel="Regular Resistant (1x)"
+        typeList={regular}
+        primaryType={pokemonType[0]}
+      />
+      <EffectivenessLevel
+        effectivenessLevel="Two Times Resistant (2x)"
+        typeList={twoTimes}
+        primaryType={pokemonType[0]}
+      />
+      <EffectivenessLevel
+        effectivenessLevel="Four Times Resistant (4x)"
+        typeList={fourTimes}
+        primaryType={pokemonType[0]}
+      />
     </div>
   );
 }
