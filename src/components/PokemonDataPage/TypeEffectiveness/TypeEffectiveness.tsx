@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { PokemonDataContext } from "../PokemonDataPage";
 import { PokemonTypeMap } from "../../Interface/PokemonDataPageInterface";
 import TypeEffectivenessCss from "../../../assets/scss/PokemonDataScreen/PokemonDataTypeEffectiveness.module.scss";
@@ -7,22 +7,34 @@ import EffectivenessLevel from "./EffectivenessLevel";
 function TypeEffectiveness() {
   const { pokemonTypeChart, pokemonType } = useContext(PokemonDataContext);
 
-  const fourTimes: Array<string> = [];
-  const twoTimes: Array<string> = [];
-  const regular: Array<string> = [];
-  const immune: Array<string> = [];
+  const [fourTimes, setFourTimes] = useState<Array<string>>([]);
+  const [twoTimes, setTwoTimes] = useState<Array<string>>([]);
+  const [regular, setRegular] = useState<Array<string>>([]);
+  const [immune, setImmune] = useState<Array<string>>([]);
 
-  for (const type in pokemonTypeChart) {
-    if (pokemonTypeChart[type as keyof PokemonTypeMap] === 0) {
-      immune.push(type);
-    } else if (pokemonTypeChart[type as keyof PokemonTypeMap] === 1) {
-      regular.push(type);
-    } else if (pokemonTypeChart[type as keyof PokemonTypeMap] === 0.5) {
-      twoTimes.push(type);
-    } else {
-      fourTimes.push(type);
+  useEffect(() => {
+    const four: Array<string> = [];
+    const two: Array<string> = [];
+    const regular: Array<string> = [];
+    const immune: Array<string> = [];
+
+    for (const type in pokemonTypeChart) {
+      if (pokemonTypeChart[type as keyof PokemonTypeMap] === 0) {
+        immune.push(type);
+      } else if (pokemonTypeChart[type as keyof PokemonTypeMap] === 1) {
+        regular.push(type);
+      } else if (pokemonTypeChart[type as keyof PokemonTypeMap] === 0.5) {
+        two.push(type);
+      } else {
+        four.push(type);
+      }
     }
-  }
+
+    setFourTimes([...four]);
+    setTwoTimes([...two]);
+    setRegular([...regular]);
+    setImmune([...immune]);
+  }, [pokemonTypeChart]);
 
   return (
     <div
