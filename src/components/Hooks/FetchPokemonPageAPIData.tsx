@@ -15,6 +15,8 @@ import {
   BannerInfo,
   MovePartialData,
   FeaturePokemon,
+  PokemonTypeMap,
+  defaultPokemonTypeCart,
 } from "../Interface/PokemonDataPageInterface";
 import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";
 import {
@@ -25,6 +27,7 @@ import {
   getPokemonAbilities,
   getMiscData,
   getVariants,
+  getTypeChart,
 } from "./FetchApiDataHelpers";
 import { MoveSpecificData } from "../Interface/MoveDataInterface";
 import { MoveAPIData } from "../Interface/ApiInterfaces/PokemonMoveInterface";
@@ -32,9 +35,11 @@ import {
   EvolutionChain,
   PokemonEvolution,
 } from "../Interface/ApiInterfaces/PokemonEvolutionInterface";
+import { TypeData } from "../Interface/ApiInterfaces/PokemonTypeInterface";
 
 const pokemonInfoURL = "https://pokeapi.co/api/v2/pokemon/";
 const pokemonPokedexURL = "https://pokeapi.co/api/v2/pokemon-species/";
+const pokemonTypesURL = "https://pokeapi.co/api/v2/type/";
 
 export const fetchPokemonDataPageInfo = async (
   id: string
@@ -61,6 +66,8 @@ export const fetchPokemonDataPageInfo = async (
   let pokemonMiscData: MiscData = defaultMiscData;
   let pokemonVariants: Array<string> = [];
 
+  let pokemonTypeChart: PokemonTypeMap = defaultPokemonTypeCart;
+
   const response = await fetch(pokemonInfoURL.concat(id.toString()));
   const responseJson: PokemonGeneralData = await response.json();
   pokemonName = convertFirstCharacterUpper(responseJson.name);
@@ -71,6 +78,7 @@ export const fetchPokemonDataPageInfo = async (
   moveData = getMoveData(responseJson.moves);
   baseStatData = getBaseStats(responseJson.stats);
   abilityData = getPokemonAbilities(responseJson.abilities);
+  pokemonTypeChart = getTypeChart(pokemonType);
 
   if (parseInt(id) < 1025) {
     const response2 = await fetch(pokemonPokedexURL.concat(id.toString()));
@@ -87,6 +95,7 @@ export const fetchPokemonDataPageInfo = async (
   }
 
   return {
+    pokemonTypeChart,
     pokemonID,
     pokemonName,
     pokemonType,
@@ -200,4 +209,11 @@ export const fetchFeaturePokemon = async (
   });
 
   return { name, types, sprite, id };
+};
+
+export const fetchTypeData = async (id: string): Promise<TypeData> => {
+  const response = await fetch(pokemonTypesURL + id);
+  const responseJson: TypeData = await response.json();
+
+  return responseJson;
 };

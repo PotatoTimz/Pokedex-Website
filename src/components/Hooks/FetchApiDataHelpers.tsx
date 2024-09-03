@@ -14,13 +14,16 @@ import {
   AbilityInfo,
   BaseStats,
   defaultBaseStats,
+  defaultPokemonTypeCart,
   defaultSpriteData,
   GamePokedexEntry,
   MiscData,
   MoveList,
+  PokemonTypeMap,
   SpriteData,
 } from "../Interface/PokemonDataPageInterface";
 import { convertFirstCharacterUpper } from "../Utilities/UtilityFunctions";
+import { fetchTypeData } from "./FetchPokemonPageAPIData";
 
 export const getSpriteData = (sprites: Sprites): SpriteData => {
   let spriteData: SpriteData = defaultSpriteData;
@@ -217,4 +220,24 @@ export const getVariants = (
   });
 
   return pokemonVariants;
+};
+
+export const getTypeChart = (types: Array<string>): PokemonTypeMap => {
+  let typeChart = { ...defaultPokemonTypeCart };
+
+  types.forEach((typing) => {
+    fetchTypeData(typing).then((typeData) => {
+      typeData.damage_relations.double_damage_from.forEach((type) => {
+        typeChart[type.name as keyof PokemonTypeMap] *= 2;
+      });
+      typeData.damage_relations.half_damage_from.forEach((type) => {
+        typeChart[type.name as keyof PokemonTypeMap] *= 0.5;
+      });
+      typeData.damage_relations.no_damage_from.forEach((type) => {
+        typeChart[type.name as keyof PokemonTypeMap] *= 0;
+      });
+    });
+  });
+
+  return typeChart;
 };

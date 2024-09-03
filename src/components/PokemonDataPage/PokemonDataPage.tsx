@@ -13,6 +13,7 @@ import Banner from "./Banner/Banner";
 import MoveList from "./MoveList/MoveList";
 import EvolutionaryLine from "./EvolutionaryLine/EvolutionaryLine";
 import AlternativeForms from "./EvolutionaryLine/AlternativeForms";
+import TypeEffectiveness from "./TypeEffectiveness/TypeEffectiveness";
 
 export const PokemonDataContext = createContext<PokemonDataPageInfo>(
   pokemonDataPageInfoDefault
@@ -74,6 +75,15 @@ function PokemonDataPage() {
               </div>
             </>
           ) : null}
+
+          <div className={MainScreenCss["row"]}>
+            <h1 className={`border-${pokemonData.pokemonType[0]}-light`}>
+              Defensive Matchups
+            </h1>
+          </div>
+          <div className={MainScreenCss["row"]}>
+            <TypeEffectiveness />
+          </div>
 
           <div className={MainScreenCss["row"]}>
             <h1 className={`border-${pokemonData.pokemonType[0]}-light`}>

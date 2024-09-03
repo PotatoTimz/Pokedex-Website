@@ -54,6 +54,27 @@ export interface MiscData {
   weight: number;
 }
 
+export interface PokemonTypeMap {
+  normal: number;
+  fire: number;
+  water: number;
+  electric: number;
+  grass: number;
+  ice: number;
+  fighting: number;
+  poison: number;
+  ground: number;
+  flying: number;
+  psychic: number;
+  bug: number;
+  rock: number;
+  ghost: number;
+  dragon: number;
+  dark: number;
+  steel: number;
+  fairy: number;
+}
+
 export interface PokemonDataPageInfo {
   // is_mythical, is_legendary
   pokemonName: string;
@@ -73,7 +94,29 @@ export interface PokemonDataPageInfo {
   pokemonEvolutionLineUrl: string;
   pokemonMiscData: MiscData;
   pokemonVariants: Array<string>;
+  pokemonTypeChart: PokemonTypeMap;
 }
+
+export const defaultPokemonTypeCart: PokemonTypeMap = {
+  normal: 1,
+  fire: 1,
+  water: 1,
+  electric: 1,
+  grass: 1,
+  ice: 1,
+  fighting: 1,
+  poison: 1,
+  ground: 1,
+  flying: 1,
+  psychic: 1,
+  bug: 1,
+  rock: 1,
+  ghost: 1,
+  dragon: 1,
+  dark: 1,
+  steel: 1,
+  fairy: 1,
+};
 
 export const defaultSpriteData: SpriteData = {
   "official-artwork": "",
@@ -118,6 +161,7 @@ export const pokemonDataPageInfoDefault = {
   pokemonEvolutionLineUrl: "https://pokeapi.co/api/v2/evolution-chain/1/",
   pokemonMiscData: defaultMiscData,
   pokemonVariants: [],
+  pokemonTypeChart: defaultPokemonTypeCart,
 };
 
 export interface BannerInfo {
