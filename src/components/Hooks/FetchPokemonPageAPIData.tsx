@@ -59,15 +59,14 @@ export const fetchPokemonDataPageInfo = async (
   let pokemonEvolutionLineUrl: string = "";
   let abilityData: Array<AbilityInfo> = [];
   let isVariant: boolean = false;
-
   let pokemonRegionName: string = "";
   let pokemonRegionNumber: number = 0;
   let gamePokedexEntry: GamePokedexEntry = {};
   let pokemonMiscData: MiscData = defaultMiscData;
   let pokemonVariants: Array<string> = [];
-
   let pokemonTypeChart: PokemonTypeMap = defaultPokemonTypeCart;
 
+  // Information given from "/pokemon/id"
   const response = await fetch(pokemonInfoURL.concat(id.toString()));
   const responseJson: PokemonGeneralData = await response.json();
   pokemonName = convertFirstCharacterUpper(responseJson.name);
@@ -79,20 +78,41 @@ export const fetchPokemonDataPageInfo = async (
   baseStatData = getBaseStats(responseJson.stats);
   abilityData = getPokemonAbilities(responseJson.abilities);
   pokemonTypeChart = getTypeChart(pokemonType);
+  console.log(pokemonTypeChart);
 
   if (parseInt(id) < 1025) {
-    const response2 = await fetch(pokemonPokedexURL.concat(id.toString()));
-    const responseJson2: PokedexData = await response2.json();
-    gamePokedexEntry = getPokedexEntries(responseJson2.flavor_text_entries);
-    const genInfo = generationInfo(responseJson2.generation.name);
-    pokemonRegionName = genInfo.region;
-    pokemonRegionNumber = genInfo["generation-number"];
-    pokemonEvolutionLineUrl = responseJson2.evolution_chain.url;
-    pokemonMiscData = getMiscData(responseJson, responseJson2);
-    pokemonVariants = getVariants(responseJson2, pokemonID);
+    var response2 = await fetch(pokemonPokedexURL.concat(id.toString()));
+    var responseJson2: PokedexData = await response2.json();
   } else {
+    console.log("is variant");
     isVariant = true;
+    console.log(
+      pokemonPokedexURL.concat(
+        responseJson.species.url.substring(
+          34,
+          responseJson.species.url.length - 1
+        )
+      )
+    );
+    var response2 = await fetch(
+      pokemonPokedexURL.concat(
+        responseJson.species.url.substring(
+          42,
+          responseJson.species.url.length - 1
+        )
+      )
+    );
+    var responseJson2: PokedexData = await response2.json();
   }
+
+  // Information given from "pokemon-species/id"
+  gamePokedexEntry = getPokedexEntries(responseJson2.flavor_text_entries);
+  const genInfo = generationInfo(responseJson2.generation.name);
+  pokemonRegionName = genInfo.region;
+  pokemonRegionNumber = genInfo["generation-number"];
+  pokemonEvolutionLineUrl = responseJson2.evolution_chain.url;
+  pokemonMiscData = getMiscData(responseJson, responseJson2);
+  pokemonVariants = getVariants(responseJson2, pokemonID);
 
   return {
     pokemonTypeChart,
@@ -116,7 +136,8 @@ export const fetchPokemonDataPageInfo = async (
 export const fetchPokemonBannerData = async (
   id: number
 ): Promise<BannerInfo | undefined> => {
-  if (id <= 0 || id > 1025) {
+  if (id <= 0 || (id > 1025 && id < 10001) || id > 10277) {
+    console.log("undefined number");
     return undefined;
   }
 

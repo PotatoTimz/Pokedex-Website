@@ -65,28 +65,39 @@ function MoveList() {
             </tr>
           </thead>
           <tbody>
-            {moves
-              .sort((move1: MovePartialData, move2: MovePartialData) => {
-                if (move1.learn_level! > move2.learn_level!) {
-                  return 1;
-                } else if (
-                  move1.learn_level! === move2.learn_level! &&
-                  move1.name > move2.name
-                ) {
-                  return 1;
-                } else {
-                  return -1;
-                }
-              })
-              .map((moveData: MovePartialData) => {
-                return (
-                  <MoveInfo
-                    key={moveData.name}
-                    moveFetchData={moveData}
-                    typing={pokemonType[0]}
-                  />
-                );
-              })}
+            {moves.length === 0 ? (
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            ) : (
+              moves
+                .sort((move1: MovePartialData, move2: MovePartialData) => {
+                  if (move1.learn_level! > move2.learn_level!) {
+                    return 1;
+                  } else if (
+                    move1.learn_level! === move2.learn_level! &&
+                    move1.name > move2.name
+                  ) {
+                    return 1;
+                  } else {
+                    return -1;
+                  }
+                })
+                .map((moveData: MovePartialData) => {
+                  return (
+                    <MoveInfo
+                      key={moveData.name}
+                      moveFetchData={moveData}
+                      typing={pokemonType[0]}
+                    />
+                  );
+                })
+            )}
           </tbody>
         </table>
       </div>

@@ -14,6 +14,7 @@ import MoveList from "./MoveList/MoveList";
 import EvolutionaryLine from "./EvolutionaryLine/EvolutionaryLine";
 import AlternativeForms from "./EvolutionaryLine/AlternativeForms";
 import TypeEffectiveness from "./TypeEffectiveness/TypeEffectiveness";
+import { useNavigate } from "react-router-dom";
 
 export const PokemonDataContext = createContext<PokemonDataPageInfo>(
   pokemonDataPageInfoDefault
@@ -21,22 +22,33 @@ export const PokemonDataContext = createContext<PokemonDataPageInfo>(
 
 function PokemonDataPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [pokemonData, setPokemonData] = useState<PokemonDataPageInfo>(
     pokemonDataPageInfoDefault
   );
+  const [foundError, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    if (id !== undefined) {
-      const pokemonID: string = id.toString();
-
-      fetchPokemonDataPageInfo(pokemonID).then((response) => {
+    // If the current ID is valid
+    if (
+      id !== undefined &&
+      ((parseInt(id) >= 0 && parseInt(id) <= 1025) ||
+        (parseInt(id) >= 10001 && parseInt(id) <= 10277))
+    ) {
+      fetchPokemonDataPageInfo(id.toString()).then((response) => {
         setPokemonData(response);
-        console.log(response);
       });
+      setError(true);
+    }
+    // If invalid navigate back to the home page
+    else {
+      setTimeout(() => {
+        navigate("/", {});
+      }, 1000);
     }
   }, [id]);
 
-  return (
+  return foundError ? (
     <div id={MainScreenCss["body"]}>
       <PokemonDataContext.Provider value={pokemonData}>
         <div className={MainScreenCss["column"]}>
@@ -104,6 +116,10 @@ function PokemonDataPage() {
           </div>
         </div>
       </PokemonDataContext.Provider>
+    </div>
+  ) : (
+    <div id={MainScreenCss["body"]}>
+      ERROR: Pokemon Not Found ... Renavigating
     </div>
   );
 }

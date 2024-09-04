@@ -13,6 +13,7 @@ function TypeEffectiveness() {
   const [immune, setImmune] = useState<Array<string>>([]);
 
   useEffect(() => {
+    console.log(pokemonTypeChart);
     const four: Array<string> = [];
     const two: Array<string> = [];
     const regular: Array<string> = [];
@@ -34,7 +35,6 @@ function TypeEffectiveness() {
     setTwoTimes([...two]);
     setRegular([...regular]);
     setImmune([...immune]);
-    console.log(two);
   }, [pokemonTypeChart]);
 
   return (
