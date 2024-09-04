@@ -34,6 +34,7 @@ function TypeEffectiveness() {
     setTwoTimes([...two]);
     setRegular([...regular]);
     setImmune([...immune]);
+    console.log(two);
   }, [pokemonTypeChart]);
 
   return (
